@@ -1,14 +1,9 @@
 import './hero.scss'
 import Typewriter from 'typewriter-effect'
-import { Link } from 'react-router-dom'
-import { LuYoutube } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
 import ResizeButton from '@/components/sections/resizeButton'
 import { AiFillFire } from 'react-icons/ai'
 import { MdFileDownload } from 'react-icons/md'
-import { APP_DATA } from '@/helpers/data'
-import { DiGithub } from 'react-icons/di'
-import { FaFacebook, FaGithub, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 import Socialmedia from '@/components/sections/socialMedia'
 
 interface IProps {
@@ -16,7 +11,13 @@ interface IProps {
 }
 const HeroLeft = (props: IProps) => {
   const { t } = useTranslation()
-
+  const openInNewTab = (url: string) => {
+    const newWindow = window.open(url, '_blank', 'noopener,norereferrer')
+    if (newWindow) newWindow.opener = null
+  }
+  const handleDownloadCV = () => {
+    openInNewTab('https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing')
+  }
   return (
     <div className='hero-left'>
       <h3>
@@ -51,7 +52,7 @@ const HeroLeft = (props: IProps) => {
             color: 'var(--text-white-1)'
           }}
         />
-        <ResizeButton btnText={t('heroSection.cv')} btnIcons={<MdFileDownload />} />
+        <ResizeButton btnText={t('heroSection.cv')} onClick={handleDownloadCV} btnIcons={<MdFileDownload />} />
       </div>
     </div>
   )
