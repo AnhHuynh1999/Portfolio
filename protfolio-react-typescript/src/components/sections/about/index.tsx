@@ -1,9 +1,9 @@
 import AnimitionLottie from '@/components/share/animation-lottie'
-import developer from 'assets/lottie/developer.json'
 import design from 'assets/lottie/design.json'
 import contact from 'assets/lottie/contact.json'
+import cms from 'assets/lottie/cms.json'
 import { Col, Row } from 'react-bootstrap'
-import { EXPERIENCES } from '@/helpers/data'
+import { EDUCATIONS } from '@/helpers/data'
 import GlowCard from '@/components/share/glow-card'
 import blurImg from 'assets/svg/blur.svg'
 import { userCurrentApp } from '@/components/context/app.context'
@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next'
 import { FaGraduationCap } from 'react-icons/fa'
 import Divider from '@/components/sections/divider'
 import Socialmedia from '@/components/sections/socialMedia'
+
 type TLanguage = 'vi' | 'en'
 
 const About = () => {
@@ -50,7 +51,7 @@ const About = () => {
           </div>
         </Col>
         <Col md={6} xs={12}>
-          <AnimitionLottie animationPath={developer} width='80%' />
+          <AnimitionLottie animationPath={cms} width='80%' />
         </Col>
       </Row>
       <Row>
@@ -63,8 +64,8 @@ const About = () => {
               <h4 className='text-center brand-red'>Education</h4>
             </div>
             <div className='d-flex flex-column gap-5'>
-              {EXPERIENCES.map((experience) => (
-                <GlowCard key={experience.id} identifier={`glow-container-experience-${experience.id}`}>
+              {EDUCATIONS.map((education) => (
+                <GlowCard key={education.id} identifier={`glow-container-experience-${education.id}`}>
                   <div className='p-3 relative'>
                     {theme === 'dark' && (
                       <img
@@ -77,15 +78,15 @@ const About = () => {
                     )}
                     <div className='experience-container'>
                       <div className='duration-text'>
-                        <p>{experience.duration[currentLanguage]}</p>
+                        <p>{education.duration[currentLanguage]}</p>
                       </div>
                       <div className='details'>
                         <div className='icon'>
                           <FaGraduationCap size={36} />
                         </div>
                         <div className='info'>
-                          <p className='title'>{experience.title[currentLanguage]}</p>
-                          <p className='company'>{experience.company[currentLanguage]}</p>
+                          <p className='title'>{education.title[currentLanguage]}</p>
+                          <p className='company'>{education.company[currentLanguage]}</p>
                         </div>
                       </div>
                     </div>

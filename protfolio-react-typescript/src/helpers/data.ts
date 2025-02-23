@@ -32,6 +32,39 @@ export const EXPERIENCES = [
   }
 ]
 
+export const EDUCATIONS = [
+  {
+    id: 1,
+    title: {
+      vi: 'Học Sinh',
+      en: 'Student'
+    },
+    company: {
+      vi: 'Trường THPT Chuyên Nguyễn Đình Chiểu',
+      en: 'Nguyen Dinh Chieu High School '
+    },
+    duration: {
+      vi: 'Jan 2024 - Hiện tại',
+      en: 'Jan 2024 - Present'
+    }
+  },
+  {
+    id: 1,
+    title: {
+      vi: 'Sinh viên ĐH',
+      en: 'College Student'
+    },
+    company: {
+      vi: 'Đại học Công Nghiệp Thành Phố Hồ Chí Minh',
+      en: 'Ho Chi Minh City University of Industry'
+    },
+    duration: {
+      vi: 'Jan 2024 - Hiện tại',
+      en: 'Jan 2024 - Present'
+    }
+  }
+]
+
 export const SKILLS_DATA = [
   'HTML',
   'CSS',
