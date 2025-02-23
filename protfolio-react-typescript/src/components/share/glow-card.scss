@@ -1,0 +1,127 @@
+.placeholder-glow .placeholder {
+  animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+.glow-card {
+  height: fit-content;
+  cursor: pointer;
+  border: 1px solid var(--border-hero-right);
+  transition: all 0.3s;
+  position: relative;
+  background-color: var(--glow-card-background);
+  color: var(--text-white-1);
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
+.glow-card:hover {
+  border-color: transparent;
+}
+
+.glow-container {
+  --spread: 60;
+}
+
+.glow-card {
+  --active: 0.15;
+  --start: 0;
+}
+
+.glow-card:is(:hover, :focus-visible) {
+  z-index: 2;
+}
+
+.glows {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: blur(calc(var(--blur) * 1px));
+}
+
+.glows:after,
+.glows:before {
+  --alpha: 0;
+  content: '';
+  background: conic-gradient(from 180deg at 50% 70%, #f626af, #8228ec, #f626af, #0025ba, #f626af, #fafafa 1turn);
+  background-attachment: fixed;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border: 8px solid transparent;
+  border-radius: 12px;
+  mask:
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    conic-gradient(
+      from calc((var(--start) - var(--spread) * 0.5) * 1deg),
+      #000 0deg,
+      #fff,
+      rgba(0, 0, 0, 0) calc(var(--spread) * 1deg)
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: var(--active);
+  transition: opacity 1s;
+}
+
+.glow-card:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2px solid transparent;
+  content: '';
+  pointer-events: none;
+  background: #84738c;
+  background-attachment: fixed;
+  border-radius: 12px;
+  mask:
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    conic-gradient(
+      from calc((var(--start) + var(--spread) * 0.25 - var(--spread) * 1.5) * 1deg),
+      rgba(255, 255, 255, 0.1490196078) 0deg,
+      white,
+      rgba(255, 255, 255, 0.1490196078) calc(var(--spread) * 2.5deg)
+    );
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  opacity: var(--active);
+  transition: opacity 1s;
+}
+
+.glow-card:after {
+  --bg-size: 100%;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  background: conic-gradient(from 180deg at 50% 70%, #f626af, #8228ec, #f626af, #0025ba, #f626af, #fafafa 1turn);
+  background-attachment: fixed;
+  border-radius: 12px;
+  opacity: var(--active, 0);
+  transition: opacity 1s;
+  --alpha: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2px solid transparent;
+  mask:
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    conic-gradient(
+      from calc((var(--start) + var(--spread) * 0.25 - var(--spread) * 0.5) * 1deg),
+      rgba(0, 0, 0, 0) 0deg,
+      #fff,
+      rgba(0, 0, 0, 0) calc(var(--spread) * 0.5deg)
+    );
+  filter: brightness(1.5);
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}

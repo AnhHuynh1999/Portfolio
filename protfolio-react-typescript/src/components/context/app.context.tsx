@@ -1,16 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
+type ThemeContextType = 'light' | 'dark'
 interface ContextType {
-  theme: string
-  lang: string
-  setTheme: React.Dispatch<React.SetStateAction<string>>
-  setLang: React.Dispatch<React.SetStateAction<string>>
+  theme: ThemeContextType
+  setTheme: (v: ThemeContextType) => void
 }
 const AppContext = createContext<ContextType>({
   theme: 'light',
-  lang: 'en',
-  setTheme: () => {},
-  setLang: () => {}
+  setTheme: () => {}
 })
 
 const userCurrentApp = () => {
@@ -19,13 +16,12 @@ const userCurrentApp = () => {
 }
 
 const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'light')
-  const [lang, setLang] = useState<string>('en')
+  const [theme, setTheme] = useState<ThemeContextType>((localStorage.getItem('theme') as ThemeContextType) || 'light')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-bs-theme', theme)
   }, [])
 
-  return <AppContext.Provider value={{ theme, lang, setTheme, setLang }}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{ theme, setTheme }}>{children}</AppContext.Provider>
 }
 export { AppContextProvider, userCurrentApp }

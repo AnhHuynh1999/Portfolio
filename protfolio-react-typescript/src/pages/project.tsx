@@ -1,9 +1,7 @@
+import { Col, Row } from 'react-bootstrap'
+
 const ProjectPage = () => {
-  return (
-    <div>
-      <h1>Project Page</h1>
-    </div>
-  )
+  return <></>
 }
 
 export default ProjectPage

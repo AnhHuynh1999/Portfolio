@@ -1,15 +1,16 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from 'react'
 
 interface IProps {
-  btnText?: string;
-  btnIcons?: ReactNode;
-  btnStyle?: React.CSSProperties;
+  btnText?: string
+  btnIcons?: ReactNode
+  btnStyle?: React.CSSProperties
+  onClick?: () => void
 }
 const ResizeButton = (props: IProps) => {
-  const { btnText, btnIcons, btnStyle } = props;
+  const { btnText, btnIcons, btnStyle, onClick } = props
   return (
-    <button className="resize-button" style={btnStyle}>
-      <span style={{ textTransform: "uppercase" }}>{btnText}</span>
+    <button className='resize-button' style={btnStyle} onClick={onClick}>
+      <span style={{ textTransform: 'uppercase' }}>{btnText}</span>
       {btnIcons}
     </button>
   )

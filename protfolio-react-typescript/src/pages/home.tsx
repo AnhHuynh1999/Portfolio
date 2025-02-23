@@ -5,9 +5,19 @@ import HeroRight from 'components/sections/hero/hero.right'
 import ResizeButton from 'components/sections/resizeButton'
 import { MdFileDownload } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
+import Introduction from '@/components/sections/introduction'
+import Experience from '@/components/sections/experience'
+import Skill from '@/components/sections/skill'
+import { useRef } from 'react'
 
 const HomePage = () => {
   const { t } = useTranslation()
+  const expRef = useRef<HTMLElement>(null)
+
+  const scrollToExperienceSection = () => {
+    expRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className='homepage-screen'>
       <div
@@ -25,7 +35,7 @@ const HomePage = () => {
         <Container style={{ position: 'relative' }}>
           <Row>
             <Col className='d-none d-md-block' md={6}>
-              <HeroLeft />
+              <HeroLeft scrollToExperienceSection={scrollToExperienceSection} />
             </Col>
             <Col md={6}>
               <HeroRight />
@@ -37,7 +47,25 @@ const HomePage = () => {
         </Container>
       </section>
       <section>
-        <Container></Container>
+        <Container>
+          <Introduction />
+        </Container>
+      </section>
+      <Container>
+        <div className='divider'></div>
+      </Container>
+      <section ref={expRef}>
+        <Container>
+          <Experience />
+        </Container>
+      </section>
+      <Container>
+        <div className='divider'></div>
+      </Container>
+      <section>
+        <Container>
+          <Skill />
+        </Container>
       </section>
     </div>
   )
