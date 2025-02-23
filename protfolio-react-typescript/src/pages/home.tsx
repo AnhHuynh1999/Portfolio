@@ -9,6 +9,7 @@ import Introduction from '@/components/sections/introduction'
 import Experience from '@/components/sections/experience'
 import Skill from '@/components/sections/skill'
 import { useRef } from 'react'
+import Divider from '@/components/sections/divider'
 
 const HomePage = () => {
   const { t } = useTranslation()
@@ -51,17 +52,13 @@ const HomePage = () => {
           <Introduction />
         </Container>
       </section>
-      <Container>
-        <div className='divider'></div>
-      </Container>
+      <Divider />
       <section ref={expRef}>
         <Container>
           <Experience />
         </Container>
       </section>
-      <Container>
-        <div className='divider'></div>
-      </Container>
+      <Divider />
       <section>
         <Container>
           <Skill />
