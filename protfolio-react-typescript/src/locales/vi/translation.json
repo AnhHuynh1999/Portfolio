@@ -1,0 +1,17 @@
+{
+  "Welcome to React": "Chào mừng đến với React và react-i18next",
+  "appHeader": {
+    "brand": "Bảo Anh IT",
+    "home": "Trang chủ",
+    "project": "Dự án",
+    "about": "Về tác giả"
+  },
+  "heroSection": {
+    "exp": "Kinh nghiệm",
+    "cv": "Tải Resume"
+  },
+  "introSection": {
+    "about": "Giới thiệu",
+    "and": "và"
+  }
+}

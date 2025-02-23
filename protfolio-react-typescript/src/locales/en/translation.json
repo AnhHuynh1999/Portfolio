@@ -1,0 +1,17 @@
+{
+  "Welcome to React": "Welcome to React and react-i18next",
+  "appHeader": {
+    "brand": "Bao Anh IT",
+    "home": "Home",
+    "project": "Project",
+    "about": "About"
+  },
+  "heroSection": {
+    "exp": "My Skill",
+    "cv": "Get Resume"
+  },
+  "introSection": {
+    "about": "About me",
+    "and": "and"
+  }
+}
