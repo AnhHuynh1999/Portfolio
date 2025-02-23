@@ -155,9 +155,9 @@ export const PROJECTS = [
 ]
 
 export const APP_DATA = {
-  YOUTUBE_URL: '',
-  TIKTOK_URL: '',
-  INSTAGRAM_URL: '',
-  FACEBOOK_URL: '',
-  GITHUB_URL: ''
+  YOUTUBE_URL: 'https://www.youtube.com/@anhhuynh1153',
+  TIKTOK_URL: 'https://www.tiktok.com/@anhhuynh101199',
+  INSTAGRAM_URL: 'https://www.instagram.com/anhhuynhhhhhh/?next=%2F',
+  FACEBOOK_URL: 'https://www.facebook.com/anhhuynh1011/',
+  GITHUB_URL: 'https://github.com/AnhHuynh1999'
 }
