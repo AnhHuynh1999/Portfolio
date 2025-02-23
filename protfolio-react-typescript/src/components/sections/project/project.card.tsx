@@ -1,5 +1,5 @@
 import { Button, Card } from 'react-bootstrap'
-import { FaGithub, FaRProject, FaWindows } from 'react-icons/fa'
+import { FaGithub, FaWindows } from 'react-icons/fa'
 
 interface IProjectCard {
   imgPath: string

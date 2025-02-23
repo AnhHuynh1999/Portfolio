@@ -15,7 +15,7 @@ import Socialmedia from '@/components/sections/socialMedia'
 type TLanguage = 'vi' | 'en'
 
 const About = () => {
-  const { t, i18n } = useTranslation()
+  const {  i18n } = useTranslation()
   const { theme } = userCurrentApp()
   const currentLanguage = i18n.resolvedLanguage as TLanguage
 
