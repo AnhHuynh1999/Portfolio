@@ -1176,55 +1176,6 @@ body {
   height: auto !important;
 }
 
-.hero-right {
-  border: 1px solid var(--border-hero-right);
-  border-radius: 10px;
-  background-image: var(--background-hero-right);
-}
-
-.hero-right .border-top {
-  border-top-width: 1px;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-image: var(--border-top-hero-right) 1;
-}
-
-.hero-right .first {
-  padding: 0 30px;
-  height: 50px;
-  border-color: var(--border-hero-right);
-  border-width: 1px;
-  border-style: solid;
-  border-top-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.hero-right .first .circle {
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-}
-
-.hero-right .first .circle.bg-first {
-  background-color: var(--text-red-500);
-}
-
-.hero-right .first .circle.bg-second {
-  background-color: var(--text-yellow-500);
-}
-
-.hero-right .first .circle.bg-third {
-  background-color: var(--text-green-500);
-}
-
-.hero-right .second {
-  padding: 30px 30px 40px;
-}
 .experience-container .duration-text {
   display: flex;
   justify-content: center;

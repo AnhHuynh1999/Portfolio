@@ -58,6 +58,7 @@ const HomePage = () => {
           <Experience />
         </Container>
       </section>
+      <div className='mb-5'></div>
       <Divider />
       <section>
         <Container>

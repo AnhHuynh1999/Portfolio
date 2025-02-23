@@ -20,7 +20,7 @@ const AppHeader = () => {
     return <img style={{ height: 20, width: 20 }} src={language === 'en' ? enFlag : viFlag} alt={language} />
   }
   return (
-    <Navbar expand='lg' data-bs-theme={theme} id='bg-body-tertiary' style={{ zIndex: 1 }}>
+    <Navbar expand='lg' data-bs-theme={theme} id='bg-body-tertiary' className='mb-5' style={{ zIndex: 1 }}>
       <Container>
         <Link className='navbar-brand' to='/'>
           <span className='brand-green'>{t('appHeader.brand')}</span>

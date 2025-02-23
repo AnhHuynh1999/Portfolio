@@ -41,7 +41,7 @@ const Introduction = () => {
             <br />
             {t('introSection.heading5')}
             <i>
-              <b className='text-pink-100'>&nbsp;Java Spring&nbsp;</b>
+              <b className='text-pink-100'>&nbsp;React&nbsp;</b>
             </i>
             {t('introSection.and')}
             <i>

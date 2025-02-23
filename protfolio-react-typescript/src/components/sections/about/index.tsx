@@ -15,7 +15,7 @@ import Socialmedia from '@/components/sections/socialMedia'
 type TLanguage = 'vi' | 'en'
 
 const About = () => {
-  const {  i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { theme } = userCurrentApp()
   const currentLanguage = i18n.resolvedLanguage as TLanguage
 
@@ -23,26 +23,29 @@ const About = () => {
     <>
       <Row>
         <Col md={6} xs={12}>
-          <h3 className=' text-center mb-md-5 mb-2'>
-            Know Who <span className='brand-red'> I'M</span>
-          </h3>
+          {currentLanguage === 'vi' ? (
+            <h3 className=' text-center mb-md-5 mb-2'>
+              <span className='brand-red'> Tôi</span> Là Ai
+            </h3>
+          ) : (
+            <h3 className=' text-center mb-md-5 mb-2'>
+              Know Who <span className='brand-red'> I'M</span>
+            </h3>
+          )}
+
           <div>
             <div>
-              <p> Hi Everyone, I am HoiDanIT from Hanoi, VietNam.</p>
-              <p> I am currently employed as a a freelance dev (start-up).</p>
-              <p>
-                {' '}
-                I have completed Bachelor's degree in Software Engineer at Hanoi University of Science and Technology
-                (HUST).
-              </p>
+              <p> {t('about.description1')}.</p>
+              <p> {t('about.description2')}.</p>
+              <p> {t('about.description3')}.</p>
             </div>
           </div>
           <div>
-            <p>Apart from coding, some other activities that I love to do!</p>
+            <p>{t('about.description4')}</p>
             <ul>
-              <li>Playing Games</li>
-              <li>Writing Tech Blogs</li>
-              <li>Travelling</li>
+              <li>{t('about.description5')}</li>
+              <li>{t('about.description6')}</li>
+              <li>{t('about.description7')}</li>
             </ul>
           </div>
           <div>
@@ -61,7 +64,7 @@ const About = () => {
         <Col md={6} xs={12} className='mt-md-5 mt-3'>
           <div className='d-flex flex-column align-items-center gap-3'>
             <div>
-              <h4 className='text-center brand-red'>Education</h4>
+              <h4 className='text-center brand-red'>{t('about.education')}</h4>
             </div>
             <div className='d-flex flex-column gap-5'>
               {EDUCATIONS.map((education) => (
@@ -100,7 +103,7 @@ const About = () => {
       <Divider />
       <Row>
         <Col md={6} xs={12} className=' mt-md-5 mt-3'>
-          <h3 className='mb-md-5 mb-2'>FIND ME ON </h3>
+          <h3 className='mb-md-5 mb-2'>{t('about.findmeon')} </h3>
           <Socialmedia />
         </Col>
         <Col className='d-flex flex-column align-items-center justify-content-center' md={6} xs={12}>

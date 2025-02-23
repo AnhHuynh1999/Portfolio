@@ -1,11 +1,12 @@
+import './hero.scss'
 const HeroRight = () => {
   return (
     <div className='hero-right'>
       <div className='border-top'></div>
       <div className='first'>
-        <div className='cricle bg-first'></div>
-        <div className='cricle bg-second'></div>
-        <div className='cricle bg-third'></div>
+        <div className='circle bg-first'></div>
+        <div className='circle bg-second'></div>
+        <div className='circle bg-third'></div>
       </div>
       <div className='second'>
         <code className='text-white-0'>

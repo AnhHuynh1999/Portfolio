@@ -1,53 +1,54 @@
 import project1 from 'assets/project/react-native.png'
 export const EXPERIENCES = [
   {
-    id: 1,
+    id: 3,
     title: {
-      vi: 'Lập Trình Viên',
+      vi: 'Lập Trình Viên Fullstack',
       en: 'Fullstack Developer'
     },
     company: {
-      vi: 'Công ty ABXYZ',
-      en: 'Company ABCXYZ'
+      vi: 'CÔNG TY TNHH ĐẦU TƯ TOÀN CẦU IVCOM',
+      en: 'IVCOM GLOBAL INVESTMENT COMPANY LIMITED'
     },
     duration: {
-      vi: 'Jan 2024 - Hiện tại',
-      en: 'Jan 2024 - Present'
+      vi: '10/2023 - Hiện tại',
+      en: '10/2023 - Present'
     }
   },
+
   {
     id: 2,
     title: {
-      vi: 'Lập Trình Viên',
+      vi: 'Lập Trình Viên Fullstack',
       en: 'Fullstack Developer'
     },
     company: {
-      vi: 'Công ty ABXYZ',
-      en: 'Company ABCXYZ'
+      vi: 'CÔNG TY GIẢI PHÁP PHẦN MỀM BLACKWIND',
+      en: 'Blackwind Software'
     },
     duration: {
-      vi: 'Jan 2024 - Hiện tại',
-      en: 'Jan 2024 - Present'
+      vi: '2/2023 - 6/2023',
+      en: '2/2023 - 6/2023'
+    }
+  },
+  {
+    id: 1,
+    title: {
+      vi: 'Lập Trình Viên Fullstack',
+      en: 'Fullstack Developer'
+    },
+    company: {
+      vi: 'CÔNG TY PHẦN MỀM VÀ GIẢI PHÁP KIM TỰ THÁP',
+      en: 'Pyramid Software & Consulting Ltd'
+    },
+    duration: {
+      vi: '2019 - 2023',
+      en: '2019 - 2023'
     }
   }
 ]
 
 export const EDUCATIONS = [
-  {
-    id: 1,
-    title: {
-      vi: 'Học Sinh',
-      en: 'Student'
-    },
-    company: {
-      vi: 'Trường THPT Chuyên Nguyễn Đình Chiểu',
-      en: 'Nguyen Dinh Chieu High School '
-    },
-    duration: {
-      vi: 'Jan 2024 - Hiện tại',
-      en: 'Jan 2024 - Present'
-    }
-  },
   {
     id: 1,
     title: {
@@ -59,8 +60,23 @@ export const EDUCATIONS = [
       en: 'Ho Chi Minh City University of Industry'
     },
     duration: {
-      vi: 'Jan 2024 - Hiện tại',
-      en: 'Jan 2024 - Present'
+      vi: '2017 - 2022',
+      en: '2017 - 2022'
+    }
+  },
+  {
+    id: 2,
+    title: {
+      vi: 'Học Sinh',
+      en: 'Student'
+    },
+    company: {
+      vi: 'Trường THPT Chuyên Nguyễn Đình Chiểu',
+      en: 'Nguyen Dinh Chieu High School '
+    },
+    duration: {
+      vi: '2014 - 2017',
+      en: '2014 - 2017'
     }
   }
 ]

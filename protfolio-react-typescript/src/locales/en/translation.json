@@ -7,7 +7,7 @@
     "about": "About"
   },
   "heroSection": {
-    "exp": "My Skill",
+    "exp": "Experience",
     "cv": "Get Resume"
   },
   "introSection": {
@@ -29,5 +29,17 @@
     "myRecent": "My Recent",
     "works": "Works",
     "description": "Here are a few projects I've worked on recently"
+  },
+  "about": {
+    "description1": "Hi Everyone, I am BaoAnhIT from DongThap, VietNam",
+    "description2": "I completed my Bachelor of Information Technology Engineering at Industrial University of Ho Chi Minh City (IUH)",
+    "description3": "I am a software engineer who loves to develop and build new things. I am passionate about programming and always trying to learn new things. Currently I am working on a web application development project",
+    "description4": "Apart from coding, some other activities that I love to do!",
+    "description5": "Playing Games",
+    "description6": "Playing Football",
+    "description7": "Travelling",
+    "education": "Education",
+    "findmeon": "FIND ME ON",
+    "contact": "Contact Me"
   }
 }

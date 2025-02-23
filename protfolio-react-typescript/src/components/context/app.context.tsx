@@ -16,7 +16,7 @@ const userCurrentApp = () => {
 }
 
 const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeContextType>((localStorage.getItem('theme') as ThemeContextType) || 'light')
+  const [theme, setTheme] = useState<ThemeContextType>((localStorage.getItem('theme') as ThemeContextType) || 'dark')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-bs-theme', theme)
