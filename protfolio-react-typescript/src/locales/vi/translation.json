@@ -24,5 +24,10 @@
   },
   "skill": {
     "title": "Kỹ năng"
+  },
+  "project": {
+    "myRecent": "gần đây của tôi",
+    "works": "Các sản phẩm",
+    "description": "Sau đây là một số dự án tôi đã thực hiện gần đây"
   }
 }

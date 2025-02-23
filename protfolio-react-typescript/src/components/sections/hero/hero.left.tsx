@@ -9,6 +9,7 @@ import { MdFileDownload } from 'react-icons/md'
 import { APP_DATA } from '@/helpers/data'
 import { DiGithub } from 'react-icons/di'
 import { FaFacebook, FaGithub, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
+import Socialmedia from '@/components/sections/socialMedia'
 
 interface IProps {
   scrollToExperienceSection: () => void
@@ -37,23 +38,7 @@ const HeroLeft = (props: IProps) => {
         }}
       />
       <div className='mt-md-6 mt-3 mb-md-5 mb-2'>
-        <div className='my-4 d-flex items-center gap-3'>
-          <Link className='highlight' to={APP_DATA.YOUTUBE_URL}>
-            <FaYoutube size={30} />
-          </Link>
-          <Link className='highlight' to={APP_DATA.GITHUB_URL}>
-            <FaGithub size={30} />
-          </Link>
-          <Link className='highlight' to={APP_DATA.FACEBOOK_URL}>
-            <FaFacebook size={30} />
-          </Link>
-          <Link className='highlight' to={APP_DATA.INSTAGRAM_URL}>
-            <FaInstagram size={30} />
-          </Link>
-          <Link className='highlight' to={APP_DATA.TIKTOK_URL}>
-            <FaTiktok size={30} />
-          </Link>
-        </div>
+        <Socialmedia />
       </div>
       <div className='d-md-flex d-none gap-4'>
         <ResizeButton

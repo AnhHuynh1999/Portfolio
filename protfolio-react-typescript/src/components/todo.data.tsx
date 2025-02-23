@@ -1,8 +1,7 @@
-
 interface ITodoDataProps {
   todos: {
-    title: String,
-    id: number,
+    title: String
+    id: number
   }[]
   deleteTodo: (id: number) => void
 }
@@ -11,7 +10,9 @@ const TodoData = (props: ITodoDataProps) => {
   return (
     <div>
       {todos.map((todo) => (
-        <div key={todo.id} style={{ padding: "10px 0" }}>{todo.id}-{todo.title} &nbsp; <button onClick={() => deleteTodo(todo.id)}>Delete</button> </div>
+        <div key={todo.id} style={{ padding: '10px 0' }}>
+          {todo.id}-{todo.title} &nbsp; <button onClick={() => deleteTodo(todo.id)}>Delete</button>{' '}
+        </div>
       ))}
     </div>
   )

@@ -1,7 +1,16 @@
-import { Col, Row } from 'react-bootstrap'
+import Project from '@/components/sections/project'
+import { Container } from 'react-bootstrap'
 
 const ProjectPage = () => {
-  return <></>
+  return (
+    <div className='project-screen'>
+      <section className='mt-md-5 mt-2 pt-md-5 pt-0'>
+        <Container>
+          <Project />
+        </Container>
+      </section>
+    </div>
+  )
 }
 
 export default ProjectPage
