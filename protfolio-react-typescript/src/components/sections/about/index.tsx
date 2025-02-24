@@ -108,7 +108,7 @@ const About = () => {
         </Col>
         <Col className='d-flex flex-column align-items-center justify-content-center' md={6} xs={12}>
           <AnimitionLottie animationPath={contact} width='80%' />
-          <h4 className='text-center'>Contact me</h4>
+          <h4 className='text-center'>{t('about.contact')}</h4>
         </Col>
       </Row>
       <div className='mb-5'></div>

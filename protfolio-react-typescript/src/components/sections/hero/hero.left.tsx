@@ -5,16 +5,14 @@ import ResizeButton from '@/components/sections/resizeButton'
 import { AiFillFire } from 'react-icons/ai'
 import { MdFileDownload } from 'react-icons/md'
 import Socialmedia from '@/components/sections/socialMedia'
+import openInNewTab from '@/helpers/openTab'
 
 interface IProps {
   scrollToExperienceSection: () => void
 }
 const HeroLeft = (props: IProps) => {
   const { t } = useTranslation()
-  const openInNewTab = (url: string) => {
-    const newWindow = window.open(url, '_blank', 'noopener,norereferrer')
-    if (newWindow) newWindow.opener = null
-  }
+
   const handleDownloadCV = () => {
     openInNewTab('https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing')
   }

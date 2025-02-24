@@ -10,6 +10,7 @@ import Experience from '@/components/sections/experience'
 import Skill from '@/components/sections/skill'
 import { useRef } from 'react'
 import Divider from '@/components/sections/divider'
+import openInNewTab from '@/helpers/openTab'
 
 const HomePage = () => {
   const { t } = useTranslation()
@@ -19,6 +20,9 @@ const HomePage = () => {
     expRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const handleDownloadCV = () => {
+    openInNewTab('https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing')
+  }
   return (
     <div className='homepage-screen'>
       <div
@@ -42,7 +46,7 @@ const HomePage = () => {
               <HeroRight />
             </Col>
             <Col xs={12} className='d-md-none d-flex mt-4 justify-content-center'>
-              <ResizeButton btnText={t('heroSection.cv')} btnIcons={<MdFileDownload />} />
+              <ResizeButton btnText={t('heroSection.cv')} onClick={handleDownloadCV} btnIcons={<MdFileDownload />} />
             </Col>
           </Row>
         </Container>
