@@ -1,4 +1,4 @@
-import project1 from 'assets/project/react-native.png'
+import project1 from 'assets/project/projectXcel.png'
 export const EXPERIENCES = [
   {
     id: 3,
@@ -101,56 +101,13 @@ export const PROJECTS = [
   {
     id: 1,
     imgPath: project1,
-    title: 'Project 1',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-  },
-  {
-    id: 2,
-    imgPath: project1,
-    title: 'Project 2',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-  },
-  {
-    id: 3,
-    imgPath: project1,
-    title: 'Project 3',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-  },
-  {
-    id: 4,
-    imgPath: project1,
-    title: 'Project 4',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-  },
-  {
-    id: 5,
-    imgPath: project1,
-    title: 'Project 5',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-  },
-  {
-    id: 6,
-    imgPath: project1,
-    title: 'Project 6',
-    githubLink: 'https://github.com/',
-    demoLink: 'https://github.com/',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+    title: 'Xcel',
+    githubLink: '',
+    demoLink: 'https://xcel.vn/',
+    description: {
+      vi: 'Website Xcel.vn cung cấp các khóa học trực tuyến giúp cá nhân và doanh nghiệp nâng cao kỹ năng phân tích dữ liệu và sử dụng các công cụ tự động hóa như Excel và Google Sheets. Nền tảng này có các chương trình đào tạo đa dạng, bao gồm khóa học nhóm, huấn luyện cá nhân và các dịch vụ cho khách hàng doanh nghiệp. Người dùng có thể truy cập tài liệu học tập như video hướng dẫn, khóa học trực tuyến và các tài liệu hỗ trợ khác. Xcel còn tổ chức các buổi hỏi đáp trực tiếp và cung cấp các công cụ học tập bổ sung để người học có thể tham khảo sau khóa học. Nền tảng này chú trọng vào các bài tập thực hành và ứng dụng thực tế, giúp người học có thể áp dụng hiệu quả các kỹ năng mới vào công việc.',
+      en: 'The website Xcel.vn offers a variety of online courses aimed at helping individuals and businesses improve their proficiency in data analysis and automation tools like Excel and Google Sheets. It features a range of training programs, including group courses, one-on-one coaching, and resources for corporate clients. Users can access learning materials such as instructional videos, online courses, and helpful guides. The platform also supports interactive Q&A sessions and provides additional learning tools for continued reference after the courses. Xcel emphasizes practical exercises and real-world applications, ensuring learners can effectively apply their new skills.'
+    }
   }
 ]
 

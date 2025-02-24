@@ -19,13 +19,13 @@ const HeroLeft = (props: IProps) => {
   return (
     <div className='hero-left'>
       <h3>
-        Hi There!{' '}
+        {t('heroSection.hi')}!{' '}
         <span className='wave' role='img' aria-labelledby='wave'>
           👋🏻
         </span>
       </h3>
       <h3 style={{ paddingTop: '10px', paddingBottom: '5px' }}>
-        I'M &nbsp; <strong className='brand-red'>{t('appHeader.brand')}</strong>
+        {t('heroSection.im')} &nbsp; <strong className='brand-red'>{t('appHeader.brand')}</strong>
       </h3>
       <Typewriter
         options={{

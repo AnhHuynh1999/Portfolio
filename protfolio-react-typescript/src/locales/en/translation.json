@@ -8,7 +8,9 @@
   },
   "heroSection": {
     "exp": "Experience",
-    "cv": "Get Resume"
+    "cv": "Get Resume",
+    "hi": "Hi There",
+    "im": "I'M"
   },
   "introSection": {
     "about": "About me",

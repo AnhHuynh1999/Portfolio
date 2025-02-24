@@ -3,8 +3,11 @@ import { PROJECTS } from '@/helpers/data'
 import { Col, Row } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 
+type TLanguage = 'vi' | 'en'
+
 const Project = () => {
   const { t, i18n } = useTranslation()
+  const currentLanguage = i18n.resolvedLanguage as TLanguage
   return (
     <>
       <Row>
@@ -25,7 +28,7 @@ const Project = () => {
       </Row>
       <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
         {PROJECTS.map((project) => (
-          <ProjectCard key={project.id} {...project} />
+          <ProjectCard key={project.id} {...project} description={project.description[currentLanguage]} />
         ))}
       </Row>
     </>
