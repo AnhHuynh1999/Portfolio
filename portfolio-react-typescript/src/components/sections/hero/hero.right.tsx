@@ -29,8 +29,6 @@ const HeroRight = () => {
             <span>', '</span>
             <span>NextJS</span>
             <span>', '</span>
-            <span>Java Spring</span>
-            <span>', '</span>
             <span>NestJS</span>
             <span>', '</span>
             <span>NoSQL</span>
@@ -38,8 +36,6 @@ const HeroRight = () => {
             <span>SQL</span>
             <span>', '</span>
             <span>Docker</span>
-            <span>', '</span>
-            <span>K8S</span>
             <span>'],</span>
           </div>
           <div>
