@@ -53,7 +53,7 @@ const About = () => {
             <p className='text-center brand-red'>--Jimmy O Yang</p>
           </div>
         </Col>
-        <Col md={6} xs={12}>
+        <Col md={6} xs={12} className='d-flex flex-column align-items-center'>
           <AnimitionLottie animationPath={cms} width='80%' />
         </Col>
       </Row>
