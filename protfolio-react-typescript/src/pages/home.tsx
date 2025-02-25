@@ -11,6 +11,7 @@ import Skill from '@/components/sections/skill'
 import { useRef } from 'react'
 import Divider from '@/components/sections/divider'
 import openInNewTab from '@/helpers/openTab'
+import { CV_LINK } from '@/helpers/data'
 
 const HomePage = () => {
   const { t } = useTranslation()
@@ -21,7 +22,7 @@ const HomePage = () => {
   }
 
   const handleDownloadCV = () => {
-    openInNewTab('https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing')
+    openInNewTab(CV_LINK)
   }
   return (
     <div className='homepage-screen'>

@@ -29,7 +29,7 @@ const Introduction = () => {
             {t('introSection.heading2')}
             &nbsp;
             <i>
-              <b className='text-pink-100'>Java {t('introSection.and')} Javascript</b>
+              <b className='text-pink-100'>Javascript {t('introSection.and')} Typescript</b>
             </i>
             <br />
             <br />

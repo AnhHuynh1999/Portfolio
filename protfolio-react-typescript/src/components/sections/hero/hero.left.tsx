@@ -6,6 +6,7 @@ import { AiFillFire } from 'react-icons/ai'
 import { MdFileDownload } from 'react-icons/md'
 import Socialmedia from '@/components/sections/socialMedia'
 import openInNewTab from '@/helpers/openTab'
+import { CV_LINK } from '@/helpers/data'
 
 interface IProps {
   scrollToExperienceSection: () => void
@@ -14,7 +15,7 @@ const HeroLeft = (props: IProps) => {
   const { t } = useTranslation()
 
   const handleDownloadCV = () => {
-    openInNewTab('https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing')
+    openInNewTab(CV_LINK)
   }
   return (
     <div className='hero-left'>
