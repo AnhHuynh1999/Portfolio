@@ -1,10 +1,11 @@
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import viFlag from '../../assets/svg/language/vi.svg'
-import enFlag from '../../assets/svg/language/en.svg'
+import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import viFlag from 'assets/svg/language/vi.svg'
+import enFlag from 'assets/svg/language/en.svg'
 import { Link, NavLink } from 'react-router-dom'
 import { MdNightlight, MdOutlineLightMode } from 'react-icons/md'
 import { userCurrentApp } from '../context/app.context'
 import { useTranslation } from 'react-i18next'
+import logo from 'assets/logo.png'
 
 type ThemeContextType = 'light' | 'dark'
 
@@ -23,7 +24,8 @@ const AppHeader = () => {
     <Navbar expand='lg' data-bs-theme={theme} id='bg-body-tertiary' className='mb-5' style={{ zIndex: 1 }}>
       <Container>
         <Link className='navbar-brand' to='/'>
-          <span className='brand-green'>{t('appHeader.brand')}</span>
+          <Image src={logo} width={'100px'} height='100px' />
+          {/* <span className='brand-green'>{t('appHeader.brand')}</span> */}
         </Link>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
