@@ -1,0 +1,116 @@
+{
+  "Welcome to React": "Welcome to React and react-i18next",
+  "appHeader": {
+    "brand": "Bao Anh IT",
+    "home": "Home",
+    "project": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "contactMe": "Let's Talk"
+  },
+  "heroSection": {
+    "available": "Available for new opportunities",
+    "hi": "Hi there, I'm",
+    "im": "I'm",
+    "role": "Senior Fullstack Developer",
+    "description": "I build modern, high-performance web applications and robust software solutions that deliver exceptional user experiences.",
+    "exp": "View Experience",
+    "projects": "Explore Projects",
+    "cv": "Get Resume / CV",
+    "copied": "Code copied to clipboard!"
+  },
+  "introSection": {
+    "badge": "ABOUT ME",
+    "about": "About Me",
+    "and": "and",
+    "heading": "Passionate about engineering exceptional digital products",
+    "subheading": "I am a Fullstack Software Engineer dedicated to crafting modern, scalable web applications with cutting-edge technologies and intuitive user interfaces.",
+    "heading1": "My journey began with a curiosity for solving real-world challenges through code, continuously learning and adopting modern engineering standards.",
+    "heading2": "I specialize in modern languages and frameworks like",
+    "heading3": "My core areas of focus include",
+    "heading4": "Scalable Web Architecture, High-throughput APIs, and Microservices",
+    "heading5": "Leveraging the full power of modern ecosystems like",
+    "hobbiesTitle": "Personal Interests",
+    "statsTitle": "Career Highlights"
+  },
+  "stats": {
+    "title": "Journey Overview"
+  },
+  "experience": {
+    "badge": "CAREER PATH",
+    "title": "Work Experience",
+    "subtitle": "Professional journey and milestones as a software engineer",
+    "present": "Present",
+    "keyAchievements": "Key Contributions & Responsibilities:"
+  },
+  "education": {
+    "badge": "ACADEMIC BACKGROUND",
+    "title": "Education & Degrees",
+    "subtitle": "Foundations in Information Technology and Software Engineering"
+  },
+  "skill": {
+    "badge": "EXPERTISE",
+    "title": "Skills & Technologies",
+    "subtitle": "The modern tech stack and tools I use to build world-class products",
+    "all": "All Skills",
+    "frontend": "Frontend",
+    "backend": "Backend & Database",
+    "tools": "Tools & Workflow"
+  },
+  "project": {
+    "badge": "FEATURED WORKS",
+    "myRecent": "My Recent Works",
+    "works": "Projects",
+    "title": "Featured Projects",
+    "description": "Real-world web and mobile applications I have designed, engineered, and delivered",
+    "all": "All",
+    "fullstack": "Fullstack",
+    "frontend": "Frontend",
+    "mobile": "Mobile App",
+    "backend": "Backend",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Source",
+    "featured": "Featured"
+  },
+  "contact": {
+    "badge": "GET IN TOUCH",
+    "title": "Let's build something remarkable together!",
+    "subtitle": "Have an exciting project idea or career opportunity? Feel free to reach out anytime.",
+    "emailLabel": "Direct Email",
+    "phoneLabel": "Phone Number",
+    "locationLabel": "Location",
+    "socialLabel": "Social Channels",
+    "namePlaceholder": "Your Full Name *",
+    "emailPlaceholder": "Your Email Address *",
+    "subjectPlaceholder": "Subject / Project Scope *",
+    "messagePlaceholder": "Tell me about your project... *",
+    "sendBtn": "Send Message",
+    "sending": "Sending...",
+    "successMsg": "Thank you! Your message has been sent successfully. I will get back to you soon.",
+    "errorMsg": "Please fill out all required fields!",
+    "copyEmail": "Copy Email",
+    "copiedEmail": "Email Copied!"
+  },
+  "about": {
+    "badge": "MY STORY",
+    "title": "Who Am I?",
+    "description1": "Hello! I am Bao Anh, a passionate Fullstack Software Developer based in Dong Thap & Ho Chi Minh City, Vietnam.",
+    "description2": "I earned my Bachelor's Degree in Information Technology Engineering from Industrial University of Ho Chi Minh City (IUH), majoring in Software Engineering.",
+    "description3": "With 4+ years of hands-on experience across mid-to-large scale web applications, I focus on delivering clean, maintainable, and high-performance solutions that solve real business problems.",
+    "description4": "When I am not coding, you can find me recharging with these activities:",
+    "description5": "Gaming & Esports",
+    "description6": "Playing Football",
+    "description7": "Traveling & Exploring",
+    "quote": "\"Continuous learning and passion are the keys to mastering technology and crafting meaningful impact.\"",
+    "education": "Education Journey",
+    "findmeon": "FIND ME ON",
+    "contact": "Get in Touch"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Crafted with",
+    "inVietnam": "in Vietnam",
+    "quickLinks": "Quick Navigation",
+    "backToTop": "Back to Top"
+  }
+}

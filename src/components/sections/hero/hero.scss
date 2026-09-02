@@ -1,0 +1,238 @@
+/* ==========================================================================
+   HERO SECTION STYLES
+   ========================================================================== */
+
+.hero-left-wrapper {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-greeting-sub {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.wave-emoji {
+  display: inline-block;
+  animation: wave-animation 2.2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hero-name-title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .hero-name-title {
+    font-size: 3.75rem;
+  }
+}
+
+.hero-typewriter-container {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  min-height: 2.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-typewriter-text {
+  color: var(--accent-cyan);
+  border-bottom: 2px solid var(--accent-purple);
+  padding-bottom: 2px;
+}
+
+.hero-bio-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Code Editor Card
+   -------------------------------------------------------------------------- */
+.hero-code-editor-card {
+  border-radius: 1.25rem;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg), var(--glow-primary);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.hero-code-editor-card:hover {
+  border-color: var(--border-glow);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 35px rgba(139, 92, 246, 0.4);
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-bs-theme='light'] .editor-header {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.window-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.control-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.control-dot.close {
+  background-color: #ef4444;
+}
+
+.control-dot.minimize {
+  background-color: #f59e0b;
+}
+
+.control-dot.expand {
+  background-color: #10b981;
+}
+
+.active-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.copy-code-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-code-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.editor-body {
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.code-block {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.code-line {
+  display: flex;
+  align-items: center;
+  white-space: pre;
+}
+
+.line-num {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  width: 2rem;
+  user-select: none;
+  opacity: 0.6;
+}
+
+/* Syntax Highlighting Tokens */
+.syn-keyword {
+  color: #f43f5e;
+  font-weight: 600;
+}
+.syn-var {
+  color: #38bdf8;
+  font-weight: 600;
+}
+.syn-prop {
+  color: #a78bfa;
+}
+.syn-string {
+  color: #34d399;
+}
+.syn-bool {
+  color: #fb923c;
+  font-weight: 600;
+}
+.syn-func {
+  color: #facc15;
+}
+.syn-this {
+  color: #f472b6;
+}
+.syn-num {
+  color: #c084fc;
+  font-weight: 600;
+}

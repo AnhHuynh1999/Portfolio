@@ -1,0 +1,116 @@
+{
+  "Welcome to React": "Chào mừng đến với React và react-i18next",
+  "appHeader": {
+    "brand": "Bảo Anh IT",
+    "home": "Trang chủ",
+    "project": "Dự án",
+    "about": "Về tác giả",
+    "contact": "Liên hệ",
+    "contactMe": "Kết nối ngay"
+  },
+  "heroSection": {
+    "available": "Sẵn sàng nhận dự án mới",
+    "hi": "Xin chào, tôi là",
+    "im": "Tôi là",
+    "role": "Kỹ Sư Fullstack Developer",
+    "description": "Tôi xây dựng các ứng dụng web hiện đại, hiệu năng cao và giải pháp phần mềm tối ưu trải nghiệm người dùng.",
+    "exp": "Xem Kinh nghiệm",
+    "projects": "Khám phá Dự án",
+    "cv": "Tải Resume / CV",
+    "copied": "Đã sao chép mã nguồn!"
+  },
+  "introSection": {
+    "badge": "VỀ BẢN THÂN",
+    "about": "Giới thiệu",
+    "and": "và",
+    "heading": "Đam mê kiến tạo sản phẩm số chất lượng cao",
+    "subheading": "Tôi là một kỹ sư phần mềm Fullstack tập trung vào xây dựng các sản phẩm web hiện đại, có tính mở rộng cao và trải nghiệm người dùng vượt trội.",
+    "heading1": "Tôi bắt đầu hành trình lập trình từ niềm say mê giải quyết các bài toán công nghệ thực tế và không ngừng trau dồi kiến thức mới mỗi ngày.",
+    "heading2": "Tôi thành thạo các ngôn ngữ cốt lõi như",
+    "heading3": "Thế mạnh chuyên môn của tôi là",
+    "heading4": "phát triển kiến trúc Web hiện đại, APIs hiệu năng cao và Microservices",
+    "heading5": "Kết hợp sức mạnh của hệ sinh thái",
+    "hobbiesTitle": "Sở thích cá nhân",
+    "statsTitle": "Số liệu ấn tượng"
+  },
+  "stats": {
+    "title": "Tổng quan hành trình"
+  },
+  "experience": {
+    "badge": "SỰ NGHIỆP",
+    "title": "Kinh nghiệm làm việc",
+    "subtitle": "Hành trình phát triển và các dấu mốc trong sự nghiệp kỹ sư phần mềm",
+    "present": "Hiện tại",
+    "keyAchievements": "Đóng góp & Công việc chính:"
+  },
+  "education": {
+    "badge": "HỌC VẤN",
+    "title": "Học vấn & Bằng cấp",
+    "subtitle": "Nền tảng kiến thức công nghệ thông tin và kỹ thuật phần mềm"
+  },
+  "skill": {
+    "badge": "NĂNG LỰC",
+    "title": "Kỹ năng & Công nghệ",
+    "subtitle": "Hệ sinh thái công nghệ tôi sử dụng để kiến tạo các sản phẩm chất lượng cao",
+    "all": "Tất cả",
+    "frontend": "Frontend",
+    "backend": "Backend & Database",
+    "tools": "Công cụ & Quy trình"
+  },
+  "project": {
+    "badge": "SẢN PHẨM NỔI BẬT",
+    "myRecent": "Dự án gần đây của tôi",
+    "works": "Dự án",
+    "title": "Các dự án nổi bật",
+    "description": "Các sản phẩm thực tế, ứng dụng web và di động tôi đã tham gia thiết kế và lập trình",
+    "all": "Tất cả",
+    "fullstack": "Fullstack",
+    "frontend": "Frontend",
+    "mobile": "Mobile App",
+    "backend": "Backend",
+    "liveDemo": "Xem Live Demo",
+    "viewCode": "Xem Mã Nguồn",
+    "featured": "Nổi bật"
+  },
+  "contact": {
+    "badge": "LIÊN HỆ",
+    "title": "Hãy cùng tạo nên điều tuyệt vời!",
+    "subtitle": "Bạn có ý tưởng dự án hoặc cơ hội hợp tác? Đừng ngần ngại nhắn tin cho tôi.",
+    "emailLabel": "Email trực tiếp",
+    "phoneLabel": "Số điện thoại",
+    "locationLabel": "Địa điểm",
+    "socialLabel": "Mạng xã hội",
+    "namePlaceholder": "Họ và tên của bạn *",
+    "emailPlaceholder": "Địa chỉ email của bạn *",
+    "subjectPlaceholder": "Chủ đề / Dự án muốn trao đổi *",
+    "messagePlaceholder": "Nội dung tin nhắn chi tiết... *",
+    "sendBtn": "Gửi tin nhắn ngay",
+    "sending": "Đang gửi...",
+    "successMsg": "Cảm ơn bạn! Tin nhắn đã được gửi thành công. Tôi sẽ phản hồi sớm nhất.",
+    "errorMsg": "Vui lòng điền đầy đủ các thông tin bắt buộc!",
+    "copyEmail": "Sao chép Email",
+    "copiedEmail": "Đã sao chép Email!"
+  },
+  "about": {
+    "badge": "CÂU CHUYỆN CỦA TÔI",
+    "title": "Tôi Là Ai?",
+    "description1": "Xin chào! Tôi là Bảo Anh, một Kỹ sư phần mềm Fullstack đam mê công nghệ đến từ Đồng Tháp & TP. Hồ Chí Minh, Việt Nam.",
+    "description2": "Tôi tốt nghiệp Cử nhân Kỹ sư Công nghệ thông tin tại Trường Đại học Công nghiệp Thành phố Hồ Chí Minh (IUH) với định hướng Kỹ thuật phần mềm.",
+    "description3": "Với hơn 4 năm kinh nghiệm thực chiến trong các dự án web quy mô vừa và lớn, tôi tập trung vào việc tạo ra các sản phẩm sạch, hiệu năng cao và giải quyết triệt để bài toán kinh doanh của khách hàng.",
+    "description4": "Ngoài giờ lập trình, tôi thường tái tạo năng lượng với những hoạt động lành mạnh:",
+    "description5": "Chơi Game & Esports",
+    "description6": "Đá bóng rèn luyện sức khỏe",
+    "description7": "Du lịch khám phá vùng đất mới",
+    "quote": "\"Học hỏi không ngừng là chìa khóa để làm chủ công nghệ và tạo ra giá trị khác biệt.\"",
+    "education": "Quá trình Học vấn",
+    "findmeon": "KẾT NỐI VỚI TÔI",
+    "contact": "Liên hệ trực tiếp"
+  },
+  "footer": {
+    "rights": "Bản quyền thuộc về",
+    "madeWith": "Được xây dựng với",
+    "inVietnam": "tại Việt Nam",
+    "quickLinks": "Liên kết nhanh",
+    "backToTop": "Lên đầu trang"
+  }
+}

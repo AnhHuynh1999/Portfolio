@@ -1,0 +1,135 @@
+/* ==========================================================================
+   SKILLS SECTION STYLES
+   ========================================================================== */
+
+.skills-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .skills-modern-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .skills-modern-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .skills-modern-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.skill-modern-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  border-radius: 1.25rem;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-modern-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-md), var(--glow-primary);
+  background: var(--bg-glass-card-hover);
+}
+
+.skill-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-modern-card:hover .skill-icon-wrapper {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.skill-icon-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.skill-label {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Marquee Strip with Gradient Fades
+   -------------------------------------------------------------------------- */
+.skills-marquee-container {
+  position: relative;
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.marquee-fade-left,
+.marquee-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-primary) 0%, transparent 100%);
+}
+
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-primary) 0%, transparent 100%);
+}
+
+.marquee-skill-item {
+  padding: 0 0.65rem;
+}
+
+.marquee-skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.marquee-skill-pill:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--glow-primary);
+  transform: translateY(-2px);
+}
