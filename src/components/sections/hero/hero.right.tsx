@@ -11,7 +11,7 @@ const HeroRight = () => {
 
   const codeString = `const developer = {
   name: '${APP_DATA.NAME}',
-  role: 'Senior Fullstack Engineer',
+  role: 'Fullstack Engineer',
   skills: [
     'React', 'TypeScript', 'Next.js', 
     'NestJS', 'Node.js', 'MySQL', 

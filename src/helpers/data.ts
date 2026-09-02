@@ -30,8 +30,8 @@ export const EXPERIENCES: IExperienceItem[] = [
   {
     id: 3,
     title: {
-      vi: 'Kỹ Sư Fullstack Developer (Senior)',
-      en: 'Senior Fullstack Developer'
+      vi: 'Kỹ Sư Fullstack Developer',
+      en: 'Fullstack Developer'
     },
     company: {
       vi: 'CÔNG TY TNHH ĐẦU TƯ TOÀN CẦU IVCOM',
@@ -306,7 +306,7 @@ export const PROJECTS: IProjectItem[] = [
 
 export const APP_DATA = {
   NAME: 'Bảo Anh IT',
-  ROLE: 'Senior Fullstack Developer',
+  ROLE: 'Fullstack Developer',
   EMAIL: 'anhhuynh101199@gmail.com',
   PHONE: '+84 987 654 321',
   LOCATION: 'Dong Thap / Ho Chi Minh City, Vietnam',

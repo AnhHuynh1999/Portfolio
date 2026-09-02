@@ -52,7 +52,7 @@ const HeroLeft = (props: IProps) => {
                     'Kiến Trúc Sư Phần Mềm'
                   ]
                 : [
-                    'Senior Fullstack Developer',
+                    'Fullstack Developer',
                     'React & Next.js Specialist',
                     'NestJS & Node.js Engineer',
                     'Solution Architect'
