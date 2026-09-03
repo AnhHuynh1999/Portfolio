@@ -307,8 +307,8 @@ export const PROJECTS: IProjectItem[] = [
 export const APP_DATA = {
   NAME: 'Bảo Anh IT',
   ROLE: 'Fullstack Developer',
-  EMAIL: 'anhhuynh101199@gmail.com',
-  PHONE: '+84 987 654 321',
+  EMAIL: 'huynhbaoanh1011@gmail.com',
+  PHONE: '+84 708 405 127',
   LOCATION: 'Dong Thap / Ho Chi Minh City, Vietnam',
   YOUTUBE_URL: 'https://www.youtube.com/@anhhuynh1153',
   TIKTOK_URL: 'https://www.tiktok.com/@anhhuynh101199',
