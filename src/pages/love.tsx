@@ -67,8 +67,11 @@ const LovePage = () => {
   const letterRef = useRef<HTMLDivElement | null>(null)
 
   // Storage key helper for persistence
+  const FOUR_HOURS_MS = 4 * 60 * 60 * 1000
+
+  // Storage key helper for persistence
   const getStorageKey = (cName = crushName, fName = fromName) => {
-    return `love_accepted_v1_${encodeURIComponent(cName)}_${encodeURIComponent(fName)}`
+    return `love_accepted_v2_${encodeURIComponent(cName)}_${encodeURIComponent(fName)}`
   }
 
   // Sync params with URL if changed
@@ -82,17 +85,36 @@ const LovePage = () => {
     if (searchParams.get('reset') === 'true') {
       const key = getStorageKey()
       localStorage.removeItem(key)
+      localStorage.removeItem('love_accepted_v2_global')
       localStorage.removeItem('love_accepted_v1_global')
       return
     }
 
     const key = getStorageKey()
-    const savedTime = localStorage.getItem(key) || localStorage.getItem('love_accepted_v1_global')
+    const savedTime =
+      localStorage.getItem(key) ||
+      localStorage.getItem('love_accepted_v2_global')
 
     if (savedTime) {
       const parsedDate = new Date(savedTime)
       if (!isNaN(parsedDate.getTime())) {
         setAcceptedTime(parsedDate)
+        setStage('accepted')
+        return
+      }
+    }
+
+    // Auto-migrate any previously saved v1 timestamp by shifting back 4 hours
+    const v1SavedTime =
+      localStorage.getItem(`love_accepted_v1_${encodeURIComponent(crushName)}_${encodeURIComponent(fromName)}`) ||
+      localStorage.getItem('love_accepted_v1_global')
+    if (v1SavedTime) {
+      const parsedV1 = new Date(v1SavedTime)
+      if (!isNaN(parsedV1.getTime())) {
+        const offsetDate = new Date(parsedV1.getTime() - FOUR_HOURS_MS)
+        localStorage.setItem(key, offsetDate.toISOString())
+        localStorage.setItem('love_accepted_v2_global', offsetDate.toISOString())
+        setAcceptedTime(offsetDate)
         setStage('accepted')
       }
     }
@@ -533,11 +555,13 @@ const LovePage = () => {
   const handleAccept = () => {
     setStage('accepted')
 
-    // Activated only once: lock to the very first time "Đồng ý" is clicked
+    // Activated only once: starts from 4 hours ago, locked to the first time "Đồng ý" is clicked
     const key = getStorageKey()
-    const existing = localStorage.getItem(key) || localStorage.getItem('love_accepted_v1_global')
+    const existing =
+      localStorage.getItem(key) ||
+      localStorage.getItem('love_accepted_v2_global')
 
-    let targetDate = new Date()
+    let targetDate = new Date(Date.now() - FOUR_HOURS_MS)
     if (existing) {
       const parsed = new Date(existing)
       if (!isNaN(parsed.getTime())) {
@@ -545,7 +569,7 @@ const LovePage = () => {
       }
     } else {
       localStorage.setItem(key, targetDate.toISOString())
-      localStorage.setItem('love_accepted_v1_global', targetDate.toISOString())
+      localStorage.setItem('love_accepted_v2_global', targetDate.toISOString())
     }
 
     setAcceptedTime(targetDate)
