@@ -125,7 +125,8 @@ export const EXPERIENCES: IExperienceItem[] = [
   }
 ]
 
-export const CV_LINK = 'https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing'
+// export const CV_LINK = 'https://drive.google.com/file/d/1GcWrg0EzjCvtzq4ySH6ir882OHTFVUuh/view?usp=sharing'
+export const CV_LINK = ''
 
 export const EDUCATIONS = [
   {
