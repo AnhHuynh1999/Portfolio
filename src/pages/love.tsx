@@ -64,6 +64,12 @@ const LovePage = () => {
   // Canvas refs
   const heartsCanvasRef = useRef<HTMLCanvasElement | null>(null)
   const confettiCanvasRef = useRef<HTMLCanvasElement | null>(null)
+  const letterRef = useRef<HTMLDivElement | null>(null)
+
+  // Storage key helper for persistence
+  const getStorageKey = (cName = crushName, fName = fromName) => {
+    return `love_accepted_v1_${encodeURIComponent(cName)}_${encodeURIComponent(fName)}`
+  }
 
   // Sync params with URL if changed
   useEffect(() => {
@@ -71,11 +77,32 @@ const LovePage = () => {
     if (rawFromName) setFromName(rawFromName)
   }, [rawCrushName, rawFromName])
 
-  // Timer tick effect when stage === 'accepted'
+  // Check if love proposal was already accepted previously (activated only once, persists continuously)
+  useEffect(() => {
+    if (searchParams.get('reset') === 'true') {
+      const key = getStorageKey()
+      localStorage.removeItem(key)
+      localStorage.removeItem('love_accepted_v1_global')
+      return
+    }
+
+    const key = getStorageKey()
+    const savedTime = localStorage.getItem(key) || localStorage.getItem('love_accepted_v1_global')
+
+    if (savedTime) {
+      const parsedDate = new Date(savedTime)
+      if (!isNaN(parsedDate.getTime())) {
+        setAcceptedTime(parsedDate)
+        setStage('accepted')
+      }
+    }
+  }, [crushName, fromName, searchParams])
+
+  // Timer tick effect when stage === 'accepted' (runs continuously from the saved moment)
   useEffect(() => {
     if (stage !== 'accepted' || !acceptedTime) return
 
-    const interval = setInterval(() => {
+    const updateTimer = () => {
       const now = new Date().getTime()
       const diff = Math.max(0, now - acceptedTime.getTime())
 
@@ -85,10 +112,52 @@ const LovePage = () => {
       const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
       setTimeElapsed({ days, hours, minutes, seconds })
-    }, 1000)
+    }
+
+    updateTimer()
+    const interval = setInterval(updateTimer, 1000)
 
     return () => clearInterval(interval)
   }, [stage, acceptedTime])
+
+  // Auto-scroll screen so the currently typed text / cursor stays centered in viewport
+  useEffect(() => {
+    if (stage !== 'question') return
+
+    const handleScrollToActiveText = () => {
+      if (!letterRef.current) return
+      const cursor = letterRef.current.querySelector('.Typewriter__cursor') as HTMLElement | null
+      const target = cursor || letterRef.current
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
+    }
+
+    let scrollTimer: number | null = null
+    const observer = new MutationObserver(() => {
+      if (scrollTimer) return
+      scrollTimer = window.setTimeout(() => {
+        scrollTimer = null
+        handleScrollToActiveText()
+      }, 100)
+    })
+
+    if (letterRef.current) {
+      observer.observe(letterRef.current, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      })
+      // Initial smooth scroll to center the letter card
+      letterRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+
+    return () => {
+      observer.disconnect()
+      if (scrollTimer) clearTimeout(scrollTimer)
+    }
+  }, [stage])
 
   const getAudioContext = () => {
     if (!audioCtxRef.current) {
@@ -463,7 +532,23 @@ const LovePage = () => {
   // Handle Yes click
   const handleAccept = () => {
     setStage('accepted')
-    setAcceptedTime(new Date())
+
+    // Activated only once: lock to the very first time "Đồng ý" is clicked
+    const key = getStorageKey()
+    const existing = localStorage.getItem(key) || localStorage.getItem('love_accepted_v1_global')
+
+    let targetDate = new Date()
+    if (existing) {
+      const parsed = new Date(existing)
+      if (!isNaN(parsed.getTime())) {
+        targetDate = parsed
+      }
+    } else {
+      localStorage.setItem(key, targetDate.toISOString())
+      localStorage.setItem('love_accepted_v1_global', targetDate.toISOString())
+    }
+
+    setAcceptedTime(targetDate)
 
     // Stop previous romantic melody
     stopMusic()
@@ -633,7 +718,7 @@ const LovePage = () => {
             <h1 className='love-title'>{crushName} ơiii! ❤️</h1>
 
             {/* Typewriter Effect for romantic letter */}
-            <div className='love-letter-paper'>
+            <div className='love-letter-paper' ref={letterRef}>
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
@@ -642,6 +727,15 @@ const LovePage = () => {
                       `Từ ngày biết đến ${crushName}, ${fromName} nhận ra mình bắt đầu có thêm một người để mong chờ, để quan tâm và để nhớ đến mỗi ngày. ❤️<br />
 ${fromName} không giỏi nói những lời hoa mỹ, chỉ biết rằng ${fromName} thật lòng muốn ở bên, quan tâm và cùng ${crushName} chia sẻ thật nhiều điều trên chặng đường phía trước. Nếu ${crushName} đồng ý, cho ${fromName} một cơ hội để biến những điều đó thành thật nha. ❤️`
                     )
+                    .callFunction(() => {
+                      // Smoothly center the question and buttons after typing completes
+                      setTimeout(() => {
+                        const arena = document.querySelector('.proposal-action-arena')
+                        if (arena) {
+                          arena.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                        }
+                      }, 400)
+                    })
                     .start()
                 }}
                 options={{
@@ -776,8 +870,17 @@ ${fromName} không giỏi nói những lời hoa mỹ, chỉ biết rằng ${fro
             </div>
 
             <p className='mt-3 text-white-50' style={{ fontSize: '0.85rem' }}>
-              Ngày bắt đầu: {new Date().toLocaleDateString('vi-VN')} <FaRegHeart className='text-danger ms-1' />
+              Ngày bắt đầu: {acceptedTime ? acceptedTime.toLocaleDateString('vi-VN') : new Date().toLocaleDateString('vi-VN')} <FaRegHeart className='text-danger ms-1' />
             </p>
+
+            <button
+              type='button'
+              onClick={() => setStage('envelope')}
+              className='name-customizer-toggle mt-1'
+              style={{ opacity: 0.7 }}
+            >
+              💌 Xem lại thư tỏ tình
+            </button>
           </div>
         )}
       </div>
