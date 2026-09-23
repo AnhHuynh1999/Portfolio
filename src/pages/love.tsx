@@ -13,7 +13,7 @@ import {
   FaUtensils,
   FaKissWinkHeart,
   FaRegHeart,
-  FaCalendarAlt,
+  // FaCalendarAlt,
   FaClock
 } from 'react-icons/fa'
 import { BsStars, BsEnvelopeHeartFill } from 'react-icons/bs'
