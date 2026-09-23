@@ -90,16 +90,23 @@ const LovePage = () => {
     return () => clearInterval(interval)
   }, [stage, acceptedTime])
 
-  // Play romantic music box notes using Web Audio API
-  const playRomanticChords = () => {
+  const getAudioContext = () => {
     if (!audioCtxRef.current) {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
       audioCtxRef.current = new AudioCtx()
     }
     const ctx = audioCtxRef.current
     if (ctx.state === 'suspended') {
       ctx.resume()
     }
+    return ctx
+  }
+
+  // Play romantic music box notes using Web Audio API (Stage 1 & 2)
+  const playRomanticChords = () => {
+    const ctx = getAudioContext()
 
     // Romantic music box pentatonic / lyrical notes in Hz
     const melodyNotes = [
@@ -111,7 +118,7 @@ const LovePage = () => {
 
     let noteIdx = 0
     const playNext = () => {
-      if (!ctx || ctx.state === 'closed') return
+      if (!audioCtxRef.current || !ctx || ctx.state === 'closed' || ctx.state === 'suspended') return
       const freq = melodyNotes[noteIdx % melodyNotes.length]
       noteIdx++
 
@@ -139,16 +146,74 @@ const LovePage = () => {
     playNext()
   }
 
+  // Play celebratory love theme with upbeat rhythm & harmony (Stage 3)
+  const playCelebrationTheme = () => {
+    const ctx = getAudioContext()
+
+    // Upbeat joyous love melody (C - G - Am - F celebratory theme)
+    const celebrationNotes = [
+      { freq: 523.25, harm: 261.63 }, // C5 + C4
+      { freq: 659.25, harm: 329.63 }, // E5 + E4
+      { freq: 783.99, harm: 392.0 },  // G5 + G4
+      { freq: 1046.5, harm: 523.25 }, // C6 + C5
+      { freq: 987.77, harm: 493.88 }, // B5 + B4
+      { freq: 783.99, harm: 392.0 },  // G5 + G4
+      { freq: 880.0, harm: 440.0 },   // A5 + A4
+      { freq: 1046.5, harm: 523.25 }, // C6 + C5
+      { freq: 880.0, harm: 440.0 },   // A5 + A4
+      { freq: 783.99, harm: 392.0 },  // G5 + G4
+      { freq: 659.25, harm: 329.63 }, // E5 + E4
+      { freq: 783.99, harm: 392.0 },  // G5 + G4
+      { freq: 698.46, harm: 349.23 }, // F5 + F4
+      { freq: 880.0, harm: 440.0 },   // A5 + A4
+      { freq: 1046.5, harm: 523.25 }, // C6 + C5
+      { freq: 1174.66, harm: 587.33 },// D6 + D5
+      { freq: 1046.5, harm: 523.25 }, // C6 + C5
+      { freq: 987.77, harm: 493.88 }, // B5 + B4
+      { freq: 1046.5, harm: 523.25 }  // C6 + C5
+    ]
+
+    let noteIdx = 0
+    const playNextNote = () => {
+      if (!audioCtxRef.current || !ctx || ctx.state === 'closed' || ctx.state === 'suspended') return
+      const note = celebrationNotes[noteIdx % celebrationNotes.length]
+      noteIdx++
+
+      // Lead melodic chime (bright triangle wave)
+      const osc1 = ctx.createOscillator()
+      const gain1 = ctx.createGain()
+      osc1.type = 'triangle'
+      osc1.frequency.setValueAtTime(note.freq, ctx.currentTime)
+      gain1.gain.setValueAtTime(0.0001, ctx.currentTime)
+      gain1.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.04)
+      gain1.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.2)
+      osc1.connect(gain1)
+      gain1.connect(ctx.destination)
+      osc1.start()
+      osc1.stop(ctx.currentTime + 1.3)
+
+      // Warm harmony bass/pad (smooth sine wave)
+      const osc2 = ctx.createOscillator()
+      const gain2 = ctx.createGain()
+      osc2.type = 'sine'
+      osc2.frequency.setValueAtTime(note.harm, ctx.currentTime)
+      gain2.gain.setValueAtTime(0.0001, ctx.currentTime)
+      gain2.gain.linearRampToValueAtTime(0.06, ctx.currentTime + 0.05)
+      gain2.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.0)
+      osc2.connect(gain2)
+      gain2.connect(ctx.destination)
+      osc2.start()
+      osc2.stop(ctx.currentTime + 1.1)
+
+      musicTimerRef.current = window.setTimeout(playNextNote, 320)
+    }
+
+    playNextNote()
+  }
+
   // Play a celebratory chime sound when accepted
   const playCelebrationChime = () => {
-    if (!audioCtxRef.current) {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
-      audioCtxRef.current = new AudioCtx()
-    }
-    const ctx = audioCtxRef.current
-    if (ctx.state === 'suspended') {
-      ctx.resume()
-    }
+    const ctx = getAudioContext()
 
     const chords = [523.25, 659.25, 783.99, 1046.5, 1318.51]
     chords.forEach((freq, idx) => {
@@ -168,18 +233,51 @@ const LovePage = () => {
     })
   }
 
+  const stopMusic = () => {
+    if (musicTimerRef.current) {
+      clearTimeout(musicTimerRef.current)
+      musicTimerRef.current = null
+    }
+    if (audioCtxRef.current) {
+      try {
+        audioCtxRef.current.suspend()
+      } catch {
+        // ignore
+      }
+    }
+    setIsPlayingMusic(false)
+  }
+
   const toggleMusic = () => {
     if (isPlayingMusic) {
-      if (musicTimerRef.current) clearTimeout(musicTimerRef.current)
-      if (audioCtxRef.current) {
-        audioCtxRef.current.suspend()
-      }
-      setIsPlayingMusic(false)
+      stopMusic()
     } else {
-      playRomanticChords()
+      if (stage === 'accepted') {
+        playCelebrationTheme()
+      } else {
+        playRomanticChords()
+      }
       setIsPlayingMusic(true)
     }
   }
+
+  // Stop music and close AudioContext when component unmounts (user navigates to another page)
+  useEffect(() => {
+    return () => {
+      if (musicTimerRef.current) {
+        clearTimeout(musicTimerRef.current)
+        musicTimerRef.current = null
+      }
+      if (audioCtxRef.current) {
+        try {
+          audioCtxRef.current.close()
+        } catch {
+          // ignore
+        }
+        audioCtxRef.current = null
+      }
+    }
+  }, [])
 
   // Floating Hearts background canvas animation
   useEffect(() => {
@@ -366,10 +464,16 @@ const LovePage = () => {
   const handleAccept = () => {
     setStage('accepted')
     setAcceptedTime(new Date())
+
+    // Stop previous romantic melody
+    stopMusic()
+
+    // Play sparkling fanfare chord, then automatically switch to celebratory love theme
     playCelebrationChime()
-    if (!isPlayingMusic) {
-      toggleMusic()
-    }
+    setTimeout(() => {
+      playCelebrationTheme()
+      setIsPlayingMusic(true)
+    }, 600)
   }
 
   // Share link handler
@@ -434,7 +538,7 @@ const LovePage = () => {
       <div className='love-container'>
         {/* Discreet Navigation Bar */}
         <nav className='love-nav-bar'>
-          <Link to='/' className='back-home-btn' title='Về lại Portfolio'>
+          <Link to='/' onClick={stopMusic} className='back-home-btn' title='Về lại Portfolio'>
             <FaHome /> <span>Về trang chủ</span>
           </Link>
 
@@ -664,6 +768,7 @@ ${fromName} không giỏi nói những lời hoa mỹ, chỉ biết rằng ${fro
 
               <Link
                 to='/'
+                onClick={stopMusic}
                 className='btn-no py-2 px-4 text-decoration-none d-inline-flex align-items-center justify-content-center gap-2'
               >
                 <FaHome /> <span>Ghé thăm Portfolio</span>
