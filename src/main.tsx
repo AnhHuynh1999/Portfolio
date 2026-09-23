@@ -9,6 +9,8 @@ import ProjectPage from 'pages/project.tsx'
 import '@/i18n.ts'
 import { AppContextProvider } from 'components/context/app.context'
 import AboutPage from './pages/about.tsx'
+import LovePage from './pages/love.tsx'
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,6 +20,18 @@ const router = createBrowserRouter([
       { path: '/project', element: <ProjectPage /> },
       { path: '/about', element: <AboutPage /> }
     ]
+  },
+  {
+    path: '/love',
+    element: <LovePage />
+  },
+  {
+    path: '/crush',
+    element: <LovePage />
+  },
+  {
+    path: '/to-tinh',
+    element: <LovePage />
   }
 ])
 
