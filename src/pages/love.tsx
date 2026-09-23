@@ -648,12 +648,12 @@ const LovePage = () => {
             </div>
 
             {/* First Date Note */}
-            <div className='first-date-card'>
+            {/* <div className='first-date-card'>
               <FaCalendarAlt className='me-2 text-warning' />
               <span>
                 <strong>Hẹn ước buổi hẹn đầu tiên:</strong> Cuối tuần này lúc 19:30 (Trà sữa & xem phim nhé! 🎬🧋)
               </span>
-            </div>
+            </div> */}
 
             {/* Actions for the Crush */}
             <div className='d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4'>
