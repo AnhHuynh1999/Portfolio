@@ -535,7 +535,7 @@ const LovePage = () => {
                   typewriter
                     .changeDelay(30)
                     .typeString(
-                      `Từ ngày biết đến ${crushName}, ${fromName} nhận ra mình bắt đầu có thêm một người để mong chờ, để quan tâm và để nhớ đến mỗi ngày. ❤️<br /><br />
+                      `Từ ngày biết đến ${crushName}, ${fromName} nhận ra mình bắt đầu có thêm một người để mong chờ, để quan tâm và để nhớ đến mỗi ngày. ❤️<br />
 ${fromName} không giỏi nói những lời hoa mỹ, chỉ biết rằng ${fromName} thật lòng muốn ở bên, quan tâm và cùng ${crushName} chia sẻ thật nhiều điều trên chặng đường phía trước. Nếu ${crushName} đồng ý, cho ${fromName} một cơ hội để biến những điều đó thành thật nha. ❤️`
                     )
                     .start()
