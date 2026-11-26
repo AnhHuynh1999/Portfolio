@@ -102,9 +102,9 @@
 
 ## Phase 6: Polish & Cross-Cutting
 
-- [ ] T035 [P] Lighthouse accessibility ≥ 95 on the home page and main screen of both deployed apps; fix contrast/label issues
-- [ ] T036 [P] Hit `/api/cron/cleanup` on both deployments without the secret (expect 401); locally set one row's `last_activity_at` to 91 days ago and confirm the endpoint deletes it (FR-S6)
-- [ ] T037 Mark all tasks `[X]` in `specs/002-new-portfolio-projects/tasks.md` and commit the spec folder to the portfolio repo
+- [X] T035 [P] Lighthouse accessibility ≥ 95 on the home page and main screen of both deployed apps; fix contrast/label issues
+- [X] T036 [P] Hit `/api/cron/cleanup` on both deployments without the secret (expect 401); locally set one row's `last_activity_at` to 91 days ago and confirm the endpoint deletes it (FR-S6)
+- [X] T037 Mark all tasks `[X]` in `specs/002-new-portfolio-projects/tasks.md` and commit the spec folder to the portfolio repo
 
 ---
 
