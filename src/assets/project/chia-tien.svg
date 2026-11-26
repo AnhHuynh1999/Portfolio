@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1224"/><stop offset="1" stop-color="#0d2a20"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1120" cy="80" r="260" fill="#34d399" opacity=".1"/>
+  <g transform="translate(0 -90)">
+  <g transform="translate(96 260)" font-size="22">
+    <rect width="500" height="400" rx="20" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".1"/>
+    <text x="32" y="56" fill="#fff" font-weight="800" font-size="24">Số dư từng người</text>
+    <g font-weight="600">
+      <text x="32" y="122" fill="#e2e8f0">An</text><text x="468" y="122" fill="#34d399" text-anchor="end">+2.620.000 ₫</text>
+      <rect x="32" y="138" width="436" height="8" rx="4" fill="#143326"/><rect x="32" y="138" width="410" height="8" rx="4" fill="#34d399"/>
+      <text x="32" y="200" fill="#e2e8f0">Bình</text><text x="468" y="200" fill="#fb923c" text-anchor="end">−700.000 ₫</text>
+      <rect x="32" y="216" width="436" height="8" rx="4" fill="#143326"/><rect x="32" y="216" width="410" height="8" rx="4" fill="#34d399"/>
+      <text x="32" y="278" fill="#e2e8f0">Chi</text><text x="468" y="278" fill="#fb923c" text-anchor="end">−720.000 ₫</text>
+      <rect x="32" y="294" width="436" height="8" rx="4" fill="#143326"/><rect x="32" y="294" width="436" height="8" rx="4" fill="#34d399"/>
+      <text x="32" y="356" fill="#e2e8f0">Dũng</text><text x="468" y="356" fill="#fb923c" text-anchor="end">−1.200.000 ₫</text>
+      <rect x="32" y="372" width="436" height="8" rx="4" fill="#143326"/><rect x="32" y="372" width="410" height="8" rx="4" fill="#34d399"/>
+    </g>
+  </g>
+  <g transform="translate(660 260)" font-size="22">
+    <rect width="524" height="400" rx="20" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".1"/>
+    <text x="32" y="56" fill="#fff" font-weight="800" font-size="24">Cách thanh toán gọn nhất</text>
+    <g font-weight="600">
+      <g transform="translate(32 96)"><rect width="460" height="70" rx="14" fill="#ffffff" fill-opacity=".06"/><text x="20" y="44" fill="#e2e8f0">Dũng → An</text><text x="320" y="44" fill="#fff" text-anchor="end">1.200.000 ₫</text><rect x="344" y="17" width="96" height="36" rx="10" fill="#34d399"/><text x="392" y="42" fill="#0b1224" font-size="18" font-weight="800" text-anchor="middle">Đã trả</text></g>
+      <g transform="translate(32 186)"><rect width="460" height="70" rx="14" fill="#ffffff" fill-opacity=".06"/><text x="20" y="44" fill="#e2e8f0">Chi → An</text><text x="320" y="44" fill="#fff" text-anchor="end">720.000 ₫</text><rect x="344" y="17" width="96" height="36" rx="10" fill="#34d399"/><text x="392" y="42" fill="#0b1224" font-size="18" font-weight="800" text-anchor="middle">Đã trả</text></g>
+      <g transform="translate(32 276)"><rect width="460" height="70" rx="14" fill="#ffffff" fill-opacity=".06"/><text x="20" y="44" fill="#e2e8f0">Bình → An</text><text x="320" y="44" fill="#fff" text-anchor="end">700.000 ₫</text><rect x="344" y="17" width="96" height="36" rx="10" fill="#34d399"/><text x="392" y="42" fill="#0b1224" font-size="18" font-weight="800" text-anchor="middle">Đã trả</text></g>
+    </g>
+  </g>
+  </g>
+</svg>

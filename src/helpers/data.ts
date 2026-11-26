@@ -7,6 +7,7 @@ import medicalBookingImg from 'assets/project/medical-booking.svg'
 import stateMgmtImg from 'assets/project/state-management.svg'
 import nextBlogImg from 'assets/project/next-blog.svg'
 import taskApiImg from 'assets/project/task-management-api.svg'
+import chiaTienImg from 'assets/project/chia-tien.svg'
 
 export interface IExperienceItem {
   id: number
@@ -288,6 +289,46 @@ export const PROJECTS: IProjectItem[] = [
     description: {
       vi: 'Nền tảng đào tạo trực tuyến chuyên sâu về phân tích dữ liệu, tự động hóa với Excel và Google Sheets. Cung cấp hệ thống học tập video chất lượng cao, bài tập tương tác, quản lý tiến độ học viên, hệ thống Q&A trực tiếp và cấp chứng chỉ số.',
       en: 'Specialized online education platform for data analytics and spreadsheet automation. Features interactive video courses, automated quizzes, learner progress tracking, live Q&A sessions, and verifiable digital certificate generation.'
+    }
+  },
+  {
+    id: 11,
+    slug: 'chia-tien',
+    imgPath: chiaTienImg,
+    title: 'Chia Tiền - Group Expense Splitter',
+    category: 'Fullstack',
+    featured: true,
+    period: '2026',
+    tags: ['Next.js', 'React', 'TypeScript', 'Server Actions', 'PostgreSQL', 'Neon', 'Vercel'],
+    githubLink: 'https://github.com/AnhHuynh1999/chia-tien',
+    demoLink: 'https://chia-tien-taupe.vercel.app',
+    description: {
+      vi: 'Ứng dụng chia chi phí nhóm: ghi ai đã trả gì, tự tính số dư từng người và gợi ý cách thanh toán với ít lượt chuyển khoản nhất. Không cần tài khoản — chia sẻ nhóm bằng link.',
+      en: 'Group expense splitter: log who paid what, get each member’s balance and the fewest transfers needed to settle up. No sign-up — groups are shared by link.'
+    },
+    role: {
+      vi: 'Tự lên ý tưởng, thiết kế, phát triển và triển khai',
+      en: 'Solo — idea, design, development and deployment'
+    },
+    overview: {
+      vi: 'Đi chơi chung thì ai cũng ứng tiền, cuối chuyến không ai muốn ngồi tính. Chia Tiền biến việc đó thành vài cú chạm: nhập khoản chi, app tự cân sổ và chỉ ra danh sách chuyển khoản gọn nhất để cả nhóm về 0.',
+      en: 'On group trips everyone fronts money and nobody wants to do the math at the end. Chia Tiền turns it into a few taps: log expenses, and the app balances the books and lists the fewest transfers that bring everyone to zero.'
+    },
+    features: {
+      vi: [
+        'Thuật toán greedy gợi ý thanh toán với tối đa n−1 giao dịch, có unit test',
+        'Chia đều theo số nguyên VND không lệch đồng nào; nhập nhanh kiểu 150k, 1.5tr',
+        'Server Actions + SQL thuần với CTE để ghi khoản chi và phần chia trong một câu lệnh',
+        'Neon Postgres khi deploy, PGlite (Postgres WASM) khi chạy local — không cần cài database',
+        'Nhóm mẫu để xem thử ngay, nhớ nhóm gần đây, link nhóm không bị index, giao diện sáng/tối'
+      ],
+      en: [
+        'Greedy settlement algorithm with at most n−1 transfers, unit tested',
+        'Exact integer VND equal splits; quick input like 150k or 1.5tr',
+        'Server Actions with plain SQL CTEs writing an expense and its shares in one statement',
+        'Neon Postgres in production, PGlite (Postgres in WASM) locally — no database install',
+        'One-click demo group, recent groups, non-indexed group links, light/dark UI'
+      ]
     }
   },
   {
