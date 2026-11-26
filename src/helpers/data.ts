@@ -1,5 +1,8 @@
 import project1 from 'assets/project/projectXcel.png'
 import project2 from 'assets/project/react-native.png'
+import taskflowImg from 'assets/project/taskflow.svg'
+import browserServiceImg from 'assets/project/browser-service.svg'
+import ssoDemoImg from 'assets/project/sso-demo.svg'
 
 export interface IExperienceItem {
   id: number
@@ -284,6 +287,46 @@ export const PROJECTS: IProjectItem[] = [
     }
   },
   {
+    id: 4,
+    slug: 'taskflow',
+    imgPath: taskflowImg,
+    title: 'TaskFlow - Kanban Task Manager',
+    category: 'Fullstack',
+    featured: true,
+    period: '2026',
+    tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'JWT', 'TailwindCSS'],
+    githubLink: 'https://github.com/AnhHuynh1999/taskflow',
+    demoLink: 'https://taskflow-ashy-zeta.vercel.app/',
+    description: {
+      vi: 'Ứng dụng quản lý công việc fullstack với bảng Kanban kéo-thả (To Do / In Progress / Done), đăng ký/đăng nhập bằng JWT. Thứ tự và trạng thái công việc được lưu xuống MongoDB ngay khi kéo thả.',
+      en: 'Fullstack task manager with a drag-and-drop Kanban board (To Do / In Progress / Done) and JWT authentication. Task order and status persist to MongoDB as soon as a card is dropped.'
+    },
+    role: {
+      vi: 'Tự thiết kế và phát triển toàn bộ (frontend, backend, triển khai)',
+      en: 'Solo — designed and built frontend, backend and deployment'
+    },
+    overview: {
+      vi: 'Dự án được xây dựng như một sản phẩm thật, có thể triển khai, không phải bản sao từ hướng dẫn. Frontend Next.js 14 (App Router, TypeScript) gọi API Express tách biệt; mọi endpoint công việc đều được bảo vệ bằng JWT.',
+      en: 'Built as a clean, real, deployable product rather than a tutorial clone. A Next.js 14 frontend (App Router, TypeScript) talks to a separate Express API; every task endpoint is protected by JWT.'
+    },
+    features: {
+      vi: [
+        'Đăng ký / đăng nhập bằng email + mật khẩu (JWT, mật khẩu băm bằng bcrypt)',
+        'Tạo, xóa và kéo-thả công việc giữa các cột To Do / In Progress / Done',
+        'Lưu thứ tự và trạng thái qua endpoint sắp xếp hàng loạt, cập nhật giao diện lạc quan khi kéo',
+        'API được bảo vệ: mọi endpoint công việc yêu cầu JWT hợp lệ',
+        'Frontend định kiểu đầy đủ, tách bạch API client, auth context và UI component'
+      ],
+      en: [
+        'Register / log in with email + password (JWT, passwords hashed with bcrypt)',
+        'Create, delete and drag tasks between To Do / In Progress / Done columns',
+        'Order and status persisted through a bulk reorder endpoint, with optimistic UI updates on drag',
+        'Protected API: every task endpoint requires a valid JWT',
+        'Fully typed frontend with a clean split between API client, auth context and UI components'
+      ]
+    }
+  },
+  {
     id: 2,
     slug: 'mobile-app-ecosystem',
     imgPath: project2,
@@ -307,6 +350,77 @@ export const PROJECTS: IProjectItem[] = [
     description: {
       vi: 'Hệ thống quản lý nội bộ doanh nghiệp bao gồm CRM, theo dõi tiến độ công việc Kanban theo thời gian thực, phân quyền chi tiết RBAC và báo cáo thống kê trực quan hoá dạng biểu đồ tương tác.',
       en: 'Enterprise SaaS cloud solution encompassing CRM, real-time Kanban workflow board, granular RBAC permissions, and comprehensive dynamic analytical dashboards with data export.'
+    }
+  },
+  {
+    id: 5,
+    slug: 'headless-browser-service',
+    imgPath: browserServiceImg,
+    title: 'Headless Browser Service',
+    category: 'Backend',
+    period: '2026',
+    tags: ['Node.js', 'Express', 'Playwright', 'Docker', 'n8n', 'Render'],
+    githubLink: 'https://github.com/AnhHuynh1999/playwright-html-fetcher',
+    description: {
+      vi: 'Dịch vụ HTTP chạy trình duyệt headless (Playwright + Chromium stealth) để lấy HTML của các trang render bằng JavaScript, phục vụ workflow tự động hóa n8n. Đóng gói Docker, triển khai trên Render.',
+      en: 'Headless-browser HTTP service (Playwright + stealth Chromium) that returns the HTML of JavaScript-rendered pages for n8n automation workflows. Dockerized and deployed on Render.'
+    },
+    role: {
+      vi: 'Tự thiết kế, phát triển và triển khai',
+      en: 'Solo — designed, built and deployed'
+    },
+    features: {
+      vi: [
+        'Endpoint POST /fetch-html trả về HTML đã render, có tùy chỉnh thời gian chờ',
+        'Xác thực bằng header x-auth-token; /health mở cho nền tảng kiểm tra',
+        'Playwright + stealth plugin để vượt các trang có JS-challenge',
+        'Hướng dẫn kiến trúc n8n trên VPS ↔ dịch vụ trên Render, xử lý cold start của gói Free'
+      ],
+      en: [
+        'POST /fetch-html endpoint returning rendered HTML with a configurable timeout',
+        'x-auth-token header auth; open /health endpoint for platform checks',
+        'Playwright + stealth plugin to get through JS-challenge pages',
+        'Documented n8n-on-VPS ↔ Render architecture, including free-plan cold-start handling'
+      ]
+    }
+  },
+  {
+    id: 6,
+    slug: 'sso-jwt-demo',
+    imgPath: ssoDemoImg,
+    title: 'Single Sign-On with JWT',
+    category: 'Fullstack',
+    period: '2023',
+    tags: [
+      'React',
+      'TypeScript',
+      'Redux Toolkit',
+      'Node.js',
+      'Express',
+      'Passport',
+      'JWT',
+      'MySQL',
+      'Sequelize',
+      'Docker'
+    ],
+    githubLink: 'https://github.com/AnhHuynh1999/SSO_Demo',
+    description: {
+      vi: 'Hệ thống đăng nhập một lần (SSO): một máy chủ xác thực Node.js/Express cấp JWT dùng chung cho nhiều ứng dụng React, hỗ trợ đăng nhập Google.',
+      en: 'Single Sign-On system: a Node.js/Express auth server issues JWTs shared across multiple React apps, with Google login support.'
+    },
+    features: {
+      vi: [
+        'Máy chủ xác thực với Passport (local), session lưu bằng Sequelize, mật khẩu băm bcrypt',
+        'Cấp và kiểm tra JWT dùng chung giữa các ứng dụng',
+        'Hai client React (JavaScript và TypeScript) với Redux Toolkit, React Hook Form',
+        'Đăng nhập Google, MySQL + Sequelize migration, đóng gói Docker'
+      ],
+      en: [
+        'Auth server with Passport (local strategy), Sequelize-backed sessions, bcrypt-hashed passwords',
+        'Issues and verifies JWTs shared between apps',
+        'Two React clients (JavaScript and TypeScript) using Redux Toolkit and React Hook Form',
+        'Google login, MySQL + Sequelize migrations, Dockerized backend'
+      ]
     }
   }
 ]

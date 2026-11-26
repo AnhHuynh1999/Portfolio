@@ -1045,6 +1045,7 @@ pre {
 }
 
 .project-desc {
+  flex-grow: 0; // a growing box shows lines past the clamp; .project-actions already pins to the bottom
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
