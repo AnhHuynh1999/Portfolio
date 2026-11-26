@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1224"/><stop offset="1" stop-color="#0c2a3a"/></linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1120" cy="620" r="280" fill="#2dd4bf" opacity=".08"/>
+  <g transform="translate(0 -90)">
+  <g transform="translate(96 260)">
+    <rect width="420" height="400" rx="20" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".1"/>
+    <circle cx="80" cy="84" r="40" fill="url(#ac)"/>
+    <path d="M80 66 v36 M62 84 h36" stroke="#0b1224" stroke-width="10" stroke-linecap="round"/>
+    <rect x="140" y="64" width="200" height="14" rx="7" fill="#e2e8f0"/><rect x="140" y="92" width="140" height="10" rx="5" fill="#64748b"/>
+    <text x="40" y="190" fill="#cbd5e1" font-size="22" font-weight="700">Specialty · Clinic · Doctor</text>
+    <rect x="40" y="220" width="340" height="2" fill="#ffffff" fill-opacity=".1"/>
+    <rect x="40" y="250" width="260" height="12" rx="6" fill="#94a3b8"/><rect x="40" y="280" width="300" height="10" rx="5" fill="#475569"/><rect x="40" y="306" width="220" height="10" rx="5" fill="#475569"/>
+  </g>
+  <g transform="translate(580 260)" font-size="22" font-weight="700" text-anchor="middle">
+    <rect width="604" height="400" rx="20" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".1"/>
+    <text x="40" y="60" fill="#cbd5e1" text-anchor="start">Schedule</text>
+    <g fill="#ffffff" fill-opacity=".08">
+      <rect x="40" y="96" width="160" height="60" rx="12"/><rect x="222" y="96" width="160" height="60" rx="12"/><rect x="404" y="96" width="160" height="60" rx="12"/>
+      <rect x="40" y="176" width="160" height="60" rx="12"/><rect x="404" y="176" width="160" height="60" rx="12"/>
+    </g>
+    <rect x="222" y="176" width="160" height="60" rx="12" fill="url(#ac)"/>
+    <g fill="#cbd5e1"><text x="120" y="134">08:00</text><text x="302" y="134">09:00</text><text x="484" y="134">10:00</text><text x="120" y="214">13:00</text><text x="484" y="214">15:00</text></g>
+    <text x="302" y="214" fill="#0b1224">14:00</text>
+    <rect x="40" y="290" width="524" height="70" rx="14" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-dasharray="10 8"/>
+    <text x="302" y="333" fill="#5eead4">Booking with specialty doctors</text>
+  </g>
+  </g>
+</svg>

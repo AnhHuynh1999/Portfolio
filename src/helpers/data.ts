@@ -3,6 +3,9 @@ import project2 from 'assets/project/react-native.png'
 import taskflowImg from 'assets/project/taskflow.svg'
 import browserServiceImg from 'assets/project/browser-service.svg'
 import ssoDemoImg from 'assets/project/sso-demo.svg'
+import medicalBookingImg from 'assets/project/medical-booking.svg'
+import stateMgmtImg from 'assets/project/state-management.svg'
+import nextBlogImg from 'assets/project/next-blog.svg'
 
 export interface IExperienceItem {
   id: number
@@ -420,6 +423,86 @@ export const PROJECTS: IProjectItem[] = [
         'Issues and verifies JWTs shared between apps',
         'Two React clients (JavaScript and TypeScript) using Redux Toolkit and React Hook Form',
         'Google login, MySQL + Sequelize migrations, Dockerized backend'
+      ]
+    }
+  },
+  {
+    id: 7,
+    slug: 'medical-booking',
+    imgPath: medicalBookingImg,
+    title: 'Medical Appointment Booking',
+    category: 'Fullstack',
+    period: '2023',
+    tags: ['React', 'Redux', 'React Intl', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Docker'],
+    githubLink: 'https://github.com/AnhHuynh1999/fullstackReactjsNodejs',
+    description: {
+      vi: 'Ứng dụng đặt lịch khám bệnh: bệnh nhân xem chuyên khoa, cơ sở y tế, bác sĩ và đặt lịch theo khung giờ; trang quản trị cho admin và bác sĩ.',
+      en: 'Medical appointment booking app: patients browse specialties, clinics and doctors and book time slots; admin and doctor dashboards.'
+    },
+    features: {
+      vi: [
+        'Trang chủ với chuyên khoa, cơ sở y tế, bác sĩ nổi bật và cẩm nang',
+        'Bác sĩ tạo lịch khám theo khung giờ, bệnh nhân đặt lịch trực tuyến',
+        'Admin quản lý người dùng, bác sĩ, phòng khám; soạn giới thiệu bằng Markdown',
+        'Đa ngôn ngữ Việt/Anh (React Intl), Redux persist, REST API Express + Sequelize/MySQL'
+      ],
+      en: [
+        'Home page with specialties, clinics, featured doctors and handbook',
+        'Doctors publish time-slot schedules; patients book online',
+        'Admin manages users, doctors and clinics; Markdown editor for profiles',
+        'Vietnamese/English UI (React Intl), Redux persist, Express REST API with Sequelize/MySQL'
+      ]
+    }
+  },
+  {
+    id: 8,
+    slug: 'state-management-lab',
+    imgPath: stateMgmtImg,
+    title: 'React State Management Lab',
+    category: 'Frontend',
+    period: '2025',
+    tags: ['React', 'TypeScript', 'Vite', 'Redux Toolkit', 'Redux-Saga', 'React Query', 'json-server'],
+    githubLink: 'https://github.com/AnhHuynh1999/state-management',
+    description: {
+      vi: 'Bộ ví dụ so sánh các cách quản lý state trong React — Redux Toolkit, Redux-Saga và React Query — trên cùng một bài toán CRUD với backend giả lập json-server.',
+      en: 'Side-by-side React state management examples — Redux Toolkit, Redux-Saga and React Query — solving the same CRUD problem against a json-server mock backend.'
+    },
+    features: {
+      vi: [
+        'Cùng một giao diện CRUD người dùng/bài viết viết lại bằng từng thư viện',
+        'Redux-Saga xử lý side effect bằng generator, React Query cache và refetch tự động',
+        'Backend giả lập bằng json-server để tập trung vào phía client'
+      ],
+      en: [
+        'The same users/posts CRUD UI rebuilt with each library',
+        'Redux-Saga for generator-based side effects; React Query for caching and auto refetch',
+        'json-server mock backend to keep the focus on the client'
+      ]
+    }
+  },
+  {
+    id: 9,
+    slug: 'nextjs-blog-crud',
+    imgPath: nextBlogImg,
+    title: 'Next.js 13 Blog CRUD',
+    category: 'Frontend',
+    period: '2023',
+    tags: ['Next.js', 'React', 'TypeScript', 'SWR', 'React Bootstrap'],
+    githubLink: 'https://github.com/AnhHuynh1999/Next13',
+    description: {
+      vi: 'Ứng dụng quản lý blog với Next.js 13 App Router: danh sách, xem chi tiết, thêm/sửa/xóa bài viết, lấy dữ liệu bằng SWR.',
+      en: 'Blog management app on the Next.js 13 App Router: list, detail, create/edit/delete posts, data fetching with SWR.'
+    },
+    features: {
+      vi: [
+        'App Router với layout lồng nhau và route động /blogs/[id]',
+        'Bảng bài viết với modal thêm/sửa, thông báo bằng React Toastify',
+        'SWR để fetch và revalidate dữ liệu phía client'
+      ],
+      en: [
+        'App Router with nested layouts and dynamic /blogs/[id] route',
+        'Posts table with create/edit modals and React Toastify notifications',
+        'SWR for client-side fetching and revalidation'
       ]
     }
   }
