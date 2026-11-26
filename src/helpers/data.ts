@@ -6,6 +6,7 @@ import ssoDemoImg from 'assets/project/sso-demo.svg'
 import medicalBookingImg from 'assets/project/medical-booking.svg'
 import stateMgmtImg from 'assets/project/state-management.svg'
 import nextBlogImg from 'assets/project/next-blog.svg'
+import taskApiImg from 'assets/project/task-management-api.svg'
 
 export interface IExperienceItem {
   id: number
@@ -503,6 +504,38 @@ export const PROJECTS: IProjectItem[] = [
         'App Router with nested layouts and dynamic /blogs/[id] route',
         'Posts table with create/edit modals and React Toastify notifications',
         'SWR for client-side fetching and revalidation'
+      ]
+    }
+  },
+  {
+    id: 10,
+    slug: 'task-management-api',
+    imgPath: taskApiImg,
+    title: 'Project & Task Management API',
+    category: 'Backend',
+    period: '2021',
+    tags: ['C#', 'ASP.NET Core', 'Entity Framework Core', 'SQL Server', 'JWT', 'ASP.NET Identity'],
+    githubLink: 'https://github.com/AnhHuynh1999/ThucTap/tree/BaoAnh',
+    description: {
+      vi: 'Web API quản lý dự án và công việc (dự án thực tập): đăng nhập JWT, phân quyền theo vai trò, kiến trúc nhiều tầng với Entity Framework Core và SQL Server.',
+      en: 'Project and task management Web API (internship project): JWT login, role-based authorization, layered architecture with Entity Framework Core and SQL Server.'
+    },
+    role: {
+      vi: 'Thực tập sinh, làm việc nhóm 2 người',
+      en: 'Intern, two-person team'
+    },
+    features: {
+      vi: [
+        'Đăng ký/đăng nhập với ASP.NET Identity, cấp JWT kèm claim vai trò',
+        'API CRUD cho dự án, công việc, người dùng và trạng thái công việc',
+        'Tách tầng Controllers → Service (BO) → DataAccess (DAL) → Models',
+        'Entity Framework Core code-first migration trên SQL Server'
+      ],
+      en: [
+        'Register/login with ASP.NET Identity, JWT issued with role claims',
+        'CRUD APIs for projects, tasks, users and task status',
+        'Layered design: Controllers → Service (BO) → DataAccess (DAL) → Models',
+        'Entity Framework Core code-first migrations on SQL Server'
       ]
     }
   }
