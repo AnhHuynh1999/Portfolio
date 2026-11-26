@@ -245,30 +245,38 @@ export const SKILL_CATEGORIES = [
   }
 ]
 
+type TI18n<T = string> = { vi: T; en: T }
+
+// Required: slug, title, description, tags, imgPath. Everything else is optional and hidden when absent.
 export interface IProjectItem {
   id: number
+  slug: string
   imgPath: string
   title: string
   category: 'Fullstack' | 'Frontend' | 'Mobile' | 'Backend'
-  githubLink: string
-  demoLink: string
+  githubLink?: string
+  demoLink?: string
+  privateSource?: boolean
   featured?: boolean
   tags: string[]
-  description: {
-    vi: string
-    en: string
-  }
+  description: TI18n
+  period?: string
+  role?: TI18n
+  overview?: TI18n
+  features?: TI18n<string[]>
+  outcomes?: TI18n<string[]>
+  screenshots?: string[]
 }
 
 export const PROJECTS: IProjectItem[] = [
   {
     id: 1,
+    slug: 'xcel-edtech',
     imgPath: project1,
     title: 'Xcel.vn - EdTech Platform',
     category: 'Fullstack',
     featured: true,
     tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'TailwindCSS'],
-    githubLink: 'https://github.com/AnhHuynh1999',
     demoLink: 'https://xcel.vn/',
     description: {
       vi: 'Nền tảng đào tạo trực tuyến chuyên sâu về phân tích dữ liệu, tự động hóa với Excel và Google Sheets. Cung cấp hệ thống học tập video chất lượng cao, bài tập tương tác, quản lý tiến độ học viên, hệ thống Q&A trực tiếp và cấp chứng chỉ số.',
@@ -277,13 +285,12 @@ export const PROJECTS: IProjectItem[] = [
   },
   {
     id: 2,
+    slug: 'mobile-app-ecosystem',
     imgPath: project2,
     title: 'Mobile App Ecosystem (React Native)',
     category: 'Mobile',
     featured: true,
     tags: ['React Native', 'TypeScript', 'Redux Toolkit', 'Rest API', 'Firebase'],
-    githubLink: 'https://github.com/AnhHuynh1999',
-    demoLink: 'https://github.com/AnhHuynh1999',
     description: {
       vi: 'Ứng dụng di động đa nền tảng (iOS & Android) cung cấp trải nghiệm mượt mà với tính năng thông báo thời gian thực, quản lý giỏ hàng, định vị bản đồ và thanh toán ví điện tử tích hợp an toàn.',
       en: 'Cross-platform mobile application (iOS & Android) offering fluid animations, real-time push notifications, location-based services, cart management, and seamless secure mobile payment integration.'
@@ -291,13 +298,12 @@ export const PROJECTS: IProjectItem[] = [
   },
   {
     id: 3,
+    slug: 'enterprise-cloud-hub',
     imgPath: project1,
     title: 'Enterprise Management Cloud Hub',
     category: 'Fullstack',
     featured: false,
     tags: ['Next.js', 'NestJS', 'PostgreSQL', 'Docker', 'TailwindCSS'],
-    githubLink: 'https://github.com/AnhHuynh1999',
-    demoLink: 'https://github.com/AnhHuynh1999',
     description: {
       vi: 'Hệ thống quản lý nội bộ doanh nghiệp bao gồm CRM, theo dõi tiến độ công việc Kanban theo thời gian thực, phân quyền chi tiết RBAC và báo cáo thống kê trực quan hoá dạng biểu đồ tương tác.',
       en: 'Enterprise SaaS cloud solution encompassing CRM, real-time Kanban workflow board, granular RBAC permissions, and comprehensive dynamic analytical dashboards with data export.'

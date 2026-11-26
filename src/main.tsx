@@ -6,6 +6,7 @@ import Layout from '@/layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from 'pages/home.tsx'
 import ProjectPage from 'pages/project.tsx'
+import ProjectDetailPage from 'pages/project.detail.tsx'
 import '@/i18n.ts'
 import { AppContextProvider } from 'components/context/app.context'
 import AboutPage from './pages/about.tsx'
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: '/project', element: <ProjectPage /> },
+      { path: '/project/:slug', element: <ProjectDetailPage /> },
       { path: '/about', element: <AboutPage /> }
     ]
   },

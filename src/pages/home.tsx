@@ -63,7 +63,7 @@ const HomePage = () => {
       {/* 5. Featured Projects */}
       <section className='py-4'>
         <Container>
-          <Project />
+          <Project featuredOnly />
         </Container>
       </section>
 

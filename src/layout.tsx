@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import AppHeader from 'components/layout/app.header'
 import AppFooter from 'components/layout/app.footer'
 import ScrollToTop from 'components/share/scroll-to-top'
@@ -20,6 +20,7 @@ const Layout = () => {
       </main>
       <AppFooter />
       <ScrollToTop />
+      <ScrollRestoration />
     </div>
   )
 }
