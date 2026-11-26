@@ -8,6 +8,8 @@ import stateMgmtImg from 'assets/project/state-management.svg'
 import nextBlogImg from 'assets/project/next-blog.svg'
 import taskApiImg from 'assets/project/task-management-api.svg'
 import chiaTienImg from 'assets/project/chia-tien.svg'
+import binhChonImg from 'assets/project/binh-chon.svg'
+import linkGonImg from 'assets/project/link-gon.svg'
 
 export interface IExperienceItem {
   id: number
@@ -328,6 +330,84 @@ export const PROJECTS: IProjectItem[] = [
         'Server Actions with plain SQL CTEs writing an expense and its shares in one statement',
         'Neon Postgres in production, PGlite (Postgres in WASM) locally — no database install',
         'One-click demo group, recent groups, non-indexed group links, light/dark UI'
+      ]
+    }
+  },
+  {
+    id: 12,
+    slug: 'binh-chon',
+    imgPath: binhChonImg,
+    title: 'Bình Chọn - Live Polls',
+    category: 'Fullstack',
+    period: '2026',
+    tags: ['Next.js', 'React', 'TypeScript', 'Route Handlers', 'PostgreSQL', 'Neon', 'Vercel Cron'],
+    githubLink: 'https://github.com/AnhHuynh1999/binh-chon',
+    demoLink: 'https://binh-chon-phi.vercel.app',
+    description: {
+      vi: 'Bình chọn trực tiếp cho lớp học và buổi họp: chiếu mã 6 ký tự hoặc QR, khán giả bình chọn bằng điện thoại, kết quả cập nhật trên mọi màn hình trong khoảng 2 giây. Không cần tài khoản.',
+      en: 'Live polls for classrooms and meetings: show a 6-character code or QR, the audience votes from their phones and results update on every screen within about 2 seconds. No sign-up.'
+    },
+    role: {
+      vi: 'Tự lên ý tưởng, thiết kế, phát triển và triển khai',
+      en: 'Solo — idea, design, development and deployment'
+    },
+    overview: {
+      vi: 'Bài toán chính là “realtime” trên hạ tầng serverless không giữ được WebSocket. Bình Chọn giải bằng polling nhẹ theo trạng thái hiển thị của tab, còn tính đúng của phiếu bầu được đảm bảo ở tầng database thay vì ở code ứng dụng.',
+      en: 'The core problem is “real-time” on serverless hosting that cannot hold WebSockets. Bình Chọn uses lightweight, visibility-aware polling, and guarantees vote correctness in the database rather than in application code.'
+    },
+    features: {
+      vi: [
+        'Màn hình trình chiếu với mã lớn, QR và kết quả trực tiếp; đóng/mở bình chọn',
+        'Mỗi trình duyệt một phiếu nhờ khóa chính (poll, voter) — 50 phiếu gửi đồng thời được đếm đủ 50, có script kiểm thử tải',
+        'Kiểm tra trạng thái mở và ghi phiếu trong cùng một câu SQL, tránh race condition',
+        'Kết quả trực tiếp mỗi 1,5 giây, tạm dừng khi tab ẩn để tiết kiệm request',
+        'Vercel Cron tự xóa bình chọn không hoạt động sau 90 ngày; unit test cho logic'
+      ],
+      en: [
+        'Presenter screen with a large join code, QR and live results; open/close voting',
+        'One vote per browser enforced by a (poll, voter) primary key — 50 concurrent votes count exactly 50, with a load-test script',
+        'Open-state check and vote insert in a single SQL statement to avoid race conditions',
+        'Live results every 1.5 s, paused while the tab is hidden to save requests',
+        'Vercel Cron removes polls inactive for 90 days; unit-tested core logic'
+      ]
+    }
+  },
+  {
+    id: 13,
+    slug: 'link-gon',
+    imgPath: linkGonImg,
+    title: 'Link Gọn - Link Shortener & Analytics',
+    category: 'Fullstack',
+    period: '2026',
+    tags: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Neon', 'SVG Charts', 'Vercel Cron'],
+    githubLink: 'https://github.com/AnhHuynh1999/link-gon',
+    demoLink: 'https://link-gon.vercel.app',
+    description: {
+      vi: 'Rút gọn link có thống kê: lượt bấm theo ngày, nguồn truy cập, thiết bị và quốc gia trên trang thống kê riêng tư. Tự lọc lượt xem trước của Facebook, Zalo, Telegram để số liệu là người thật.',
+      en: 'Link shortener with analytics: clicks per day, referrers, devices and countries on a private stats page. Facebook, Zalo and Telegram link previews are filtered out so numbers reflect real people.'
+    },
+    role: {
+      vi: 'Tự lên ý tưởng, thiết kế, phát triển và triển khai',
+      en: 'Solo — idea, design, development and deployment'
+    },
+    overview: {
+      vi: 'Dịch vụ rút gọn link công khai rất dễ bị dùng để giấu link lừa đảo, và số liệu thường bị thổi phồng bởi bot. Link Gọn hiện tên trang đích trước khi chuyển hướng, lọc bot khi ghi nhận và chỉ lưu dữ liệu tối thiểu (không lưu IP).',
+      en: 'Public shorteners are easily abused to hide phishing links, and their numbers get inflated by bots. Link Gọn shows the destination before redirecting, filters bots at record time and stores minimal data (no IP addresses).'
+    },
+    features: {
+      vi: [
+        'Trang trung gian chống lừa đảo: hiện tên miền đích, tự chuyển sau 3 giây',
+        'Nhận diện bot/bản xem trước qua user-agent, loại khỏi số liệu và hiện số lượt đã lọc',
+        'Biểu đồ 30 ngày và top nguồn/thiết bị/quốc gia vẽ bằng SVG thuần, có bảng ẩn cho trình đọc màn hình',
+        'Tên link tùy chọn, kiểm tra URL (chặn javascript:, link tự trỏ), giới hạn 10 link/giờ bằng IP đã băm',
+        'Vercel Cron xóa link không có lượt bấm sau 90 ngày; unit test cho logic'
+      ],
+      en: [
+        'Anti-phishing interstitial showing the destination domain, auto-continuing after 3 seconds',
+        'User-agent bot/preview detection, excluded from stats with a filtered count shown',
+        '30-day chart and top referrers/devices/countries drawn in plain SVG, with a screen-reader table',
+        'Custom aliases, URL validation (blocks javascript:, self links), 10 links/hour limit via hashed IP',
+        'Vercel Cron removes links without clicks for 90 days; unit-tested core logic'
       ]
     }
   },
