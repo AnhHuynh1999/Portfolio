@@ -150,6 +150,11 @@
 - [ ] T038 Run all 16 checks in `quickstart.md` locally (`vercel dev` or preview), in both languages and both themes
 - [ ] T039 Commit and push to `main`. The owner sets `RESEND_API_KEY` and `CONTACT_TO` in Vercel and redeploys; then verify quickstart checks 3, 6 and 12 on production
 
+**Status (2026-11-27)**:
+- T037: Accessibility 96–100 and SEO 100 on all four pages. Performance is **not met**: production LCP is 4.5 s on Slow 4G + 4× CPU, down from about 8 s+ thanks to lazy Lottie and route splitting. The rest is client-side render time; reaching ≥ 85 needs prerendered Home HTML (follow-up feature).
+- T038: checks 1, 2, 4, 5, 7, 8, 9, 10 (empty case), 11, 13, 14 and 16 verified on preview and production. Checks 3 and 6 need the Resend env vars. Check 12 needs an external debugger.
+- T039: pushed (f959a6e, 1116e46). Waiting for the owner to set RESEND_API_KEY and CONTACT_TO.
+
 ---
 
 ## Dependencies & Execution Order
