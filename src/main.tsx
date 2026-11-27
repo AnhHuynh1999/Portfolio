@@ -5,13 +5,15 @@ import 'styles/global.scss'
 import Layout from '@/layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from 'pages/home.tsx'
-import ProjectPage from 'pages/project.tsx'
-import ProjectDetailPage from 'pages/project.detail.tsx'
 import '@/i18n.ts'
 import { AppContextProvider } from 'components/context/app.context'
-import AboutPage from './pages/about.tsx'
-import LovePage from './pages/love.tsx'
 import NotFoundPage from './pages/not-found.tsx'
+
+// Home is eager (first paint); other pages load on demand to keep the main bundle small.
+const page = (load: () => Promise<{ default: React.ComponentType }>) => async () => ({
+  Component: (await load()).default
+})
+const lovePage = page(() => import('./pages/love.tsx'))
 
 const router = createBrowserRouter([
   {
@@ -19,23 +21,23 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: '/project', element: <ProjectPage /> },
-      { path: '/project/:slug', element: <ProjectDetailPage /> },
-      { path: '/about', element: <AboutPage /> },
+      { path: '/project', lazy: page(() => import('pages/project.tsx')) },
+      { path: '/project/:slug', lazy: page(() => import('pages/project.detail.tsx')) },
+      { path: '/about', lazy: page(() => import('./pages/about.tsx')) },
       { path: '*', element: <NotFoundPage /> }
     ]
   },
   {
     path: '/love',
-    element: <LovePage />
+    lazy: lovePage
   },
   {
     path: '/crush',
-    element: <LovePage />
+    lazy: lovePage
   },
   {
     path: '/to-tinh',
-    element: <LovePage />
+    lazy: lovePage
   }
 ])
 

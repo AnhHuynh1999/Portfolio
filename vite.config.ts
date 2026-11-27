@@ -24,7 +24,7 @@ function previewPages(): Plugin {
         optimizeDeps: { noDiscovery: true, include: [] }
       })
       try {
-        const { PROJECTS } = await server.ssrLoadModule('/src/helpers/data.ts')
+        const { PROJECTS, APP_DATA } = await server.ssrLoadModule('/src/helpers/data.ts')
         const page = (route: string, title: string, description: string) => {
           const t = esc(title)
           const d = esc(description)
@@ -49,7 +49,7 @@ function previewPages(): Plugin {
           'Bảo Anh — Kỹ sư phần mềm Fullstack, hơn 4 năm kinh nghiệm với React, Node.js và NestJS.'
         )
         for (const p of PROJECTS as { slug: string; title: string; description: { vi: string } }[]) {
-          page(`/project/${p.slug}`, `${p.title} | Bảo Anh`, p.description.vi)
+          page(`/project/${p.slug}`, `${p.title} | ${APP_DATA.NAME}`, p.description.vi)
         }
       } finally {
         await server.close()
