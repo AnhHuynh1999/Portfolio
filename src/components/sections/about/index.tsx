@@ -1,7 +1,7 @@
 import AnimitionLottie from '@/components/share/animation-lottie'
-import design from 'assets/lottie/design.json'
-import contact from 'assets/lottie/contact.json'
-import cms from 'assets/lottie/cms.json'
+const design = () => import('assets/lottie/design.json')
+const contact = () => import('assets/lottie/contact.json')
+const cms = () => import('assets/lottie/cms.json')
 import { Col, Row } from 'react-bootstrap'
 import { EDUCATIONS, APP_DATA } from '@/helpers/data'
 import { useTranslation } from 'react-i18next'
@@ -48,7 +48,7 @@ const About = () => {
 
           <Col lg={5} xs={12} className='text-center'>
             <div className='glass-card p-4'>
-              <AnimitionLottie animationPath={cms} width='85%' />
+              <AnimitionLottie load={cms} width='85%' />
             </div>
           </Col>
         </Row>
@@ -65,7 +65,7 @@ const About = () => {
         <Row className='align-items-center gy-5'>
           <Col lg={5} className='d-none d-lg-flex justify-content-center'>
             <div className='glass-card p-4 text-center w-100'>
-              <AnimitionLottie animationPath={design} width='85%' />
+              <AnimitionLottie load={design} width='85%' />
             </div>
           </Col>
 
@@ -108,7 +108,7 @@ const About = () => {
             </Col>
 
             <Col lg={5} xs={12} className='text-center'>
-              <AnimitionLottie animationPath={contact} width='65%' />
+              <AnimitionLottie load={contact} width='65%' />
             </Col>
           </Row>
         </div>

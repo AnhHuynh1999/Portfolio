@@ -3,25 +3,36 @@ import translationEN from '@/locales/en/translation.json'
 import translationVI from '@/locales/vi/translation.json'
 import { initReactI18next } from 'react-i18next'
 
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    // the translations
-    // (tip move them in a JSON file and import them,
-    // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
-    resources: {
-      en: {
-        translation: translationEN
-      },
-      vi: {
-        translation: translationVI
-      }
-    },
-    lng: 'en', // if you're using a language detector, do not define the lng option
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
-    }
-  })
+const readLang = () => {
+  try {
+    const saved = localStorage.getItem('lang')
+    return saved === 'en' || saved === 'vi' ? saved : 'vi'
+  } catch {
+    return 'vi'
+  }
+}
+
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng
+  try {
+    localStorage.setItem('lang', lng)
+  } catch {
+    /* storage blocked: language just won't persist */
+  }
+})
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: { translation: translationEN },
+    vi: { translation: translationVI }
+  },
+  lng: readLang(),
+  fallbackLng: 'vi',
+  interpolation: {
+    escapeValue: false // React already escapes
+  }
+})
+
+document.documentElement.lang = i18n.language
 
 export default i18n

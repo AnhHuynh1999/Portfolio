@@ -3,14 +3,14 @@ import viFlag from 'assets/svg/language/vi.svg'
 import enFlag from 'assets/svg/language/en.svg'
 import { Link, NavLink } from 'react-router-dom'
 import { MdNightlight, MdOutlineLightMode } from 'react-icons/md'
-import { FaPaperPlane } from 'react-icons/fa'
+import { FaPaperPlane, FaSearch } from 'react-icons/fa'
 import { useCurrentApp } from '../context/app.context'
 import { useTranslation } from 'react-i18next'
 import logo from 'assets/logo.png'
 
 type ThemeContextType = 'light' | 'dark'
 
-const AppHeader = () => {
+const AppHeader = ({ onOpenPalette }: { onOpenPalette: () => void }) => {
   const { theme, setTheme } = useCurrentApp()
   const { t, i18n } = useTranslation()
 
@@ -44,7 +44,13 @@ const AppHeader = () => {
             <span className='navbar-brand-title'>{t('appHeader.brand')}</span>
           </Link>
 
-          <Navbar.Toggle aria-controls='main-navbar-nav' className='border-0 shadow-none' />
+          <div className='d-flex align-items-center gap-2 ms-auto ms-lg-0 order-lg-last'>
+            <button type='button' className='palette-open-btn' onClick={onOpenPalette} aria-label={t('palette.open')}>
+              <FaSearch size={15} aria-hidden />
+              <kbd className='d-none d-lg-inline'>Ctrl K</kbd>
+            </button>
+            <Navbar.Toggle aria-controls='main-navbar-nav' className='border-0 shadow-none' />
+          </div>
 
           <Navbar.Collapse id='main-navbar-nav'>
             <Nav className='mx-auto gap-1 my-2 my-lg-0'>

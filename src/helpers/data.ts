@@ -278,6 +278,19 @@ export interface IProjectItem {
   screenshots?: string[]
 }
 
+export interface ITestimonial {
+  id: number
+  name: string
+  role: TI18n
+  relation: 'teammate' | 'manager' | 'client' | 'mentor'
+  quote: TI18n
+  avatar?: string
+  link?: string
+}
+
+// Only real quotes with permission. Empty → the section and its palette entry stay hidden.
+export const TESTIMONIALS: ITestimonial[] = []
+
 export const PROJECTS: IProjectItem[] = [
   {
     id: 1,

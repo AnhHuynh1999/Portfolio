@@ -7,12 +7,19 @@ import openInNewTab from '@/helpers/openTab'
 import { CV_LINK, APP_DATA } from '@/helpers/data'
 import { Link } from 'react-router-dom'
 
+const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
 interface IProps {
   scrollToExperienceSection?: () => void
 }
 
 const HeroLeft = (props: IProps) => {
   const { t, i18n } = useTranslation()
+
+  const roles =
+    i18n.resolvedLanguage === 'vi'
+      ? ['Kỹ Sư Fullstack Developer', 'Chuyên Gia React & Next.js', 'Backend NestJS & Node.js', 'Kiến Trúc Sư Phần Mềm']
+      : ['Fullstack Developer', 'React & Next.js Specialist', 'NestJS & Node.js Engineer', 'Solution Architect']
 
   const handleDownloadCV = () => {
     openInNewTab(CV_LINK)
@@ -41,29 +48,20 @@ const HeroLeft = (props: IProps) => {
 
       {/* Dynamic Typewriter Role */}
       <div className='hero-typewriter-container'>
-        <Typewriter
-          options={{
-            strings:
-              i18n.resolvedLanguage === 'vi'
-                ? [
-                    'Kỹ Sư Fullstack Developer',
-                    'Chuyên Gia React & Next.js',
-                    'Backend NestJS & Node.js',
-                    'Kiến Trúc Sư Phần Mềm'
-                  ]
-                : [
-                    'Fullstack Developer',
-                    'React & Next.js Specialist',
-                    'NestJS & Node.js Engineer',
-                    'Solution Architect'
-                  ],
-            autoStart: true,
-            loop: true,
-            deleteSpeed: 40,
-            delay: 75,
-            wrapperClassName: 'hero-typewriter-text'
-          }}
-        />
+        {reducedMotion ? (
+          <span className='hero-typewriter-text'>{roles[0]}</span>
+        ) : (
+          <Typewriter
+            options={{
+              strings: roles,
+              autoStart: true,
+              loop: true,
+              deleteSpeed: 40,
+              delay: 75,
+              wrapperClassName: 'hero-typewriter-text'
+            }}
+          />
+        )}
       </div>
 
       {/* Short Bio Description */}
@@ -76,18 +74,24 @@ const HeroLeft = (props: IProps) => {
 
       {/* Call to Actions */}
       <div className='d-flex flex-wrap gap-3 mt-4'>
-        <button onClick={handleDownloadCV} className='btn-glow-primary' title='Download Resume'>
-          <MdFileDownload size={20} />
-          <span>{t('heroSection.cv')}</span>
-        </button>
+        {CV_LINK && (
+          <button onClick={handleDownloadCV} className='btn-glow-primary'>
+            <MdFileDownload size={20} aria-hidden />
+            <span>{t('heroSection.cv')}</span>
+          </button>
+        )}
 
         {props.scrollToExperienceSection ? (
-          <button onClick={props.scrollToExperienceSection} className='btn-glass-secondary' title='View Experience'>
+          <button
+            onClick={props.scrollToExperienceSection}
+            className={CV_LINK ? 'btn-glass-secondary' : 'btn-glow-primary'}
+            title='View Experience'
+          >
             <MdWorkOutline size={18} />
             <span>{t('heroSection.exp')}</span>
           </button>
         ) : (
-          <Link to='/project' className='btn-glass-secondary' title='Explore Projects'>
+          <Link to='/project' className={CV_LINK ? 'btn-glass-secondary' : 'btn-glow-primary'} title='Explore Projects'>
             <MdWorkOutline size={18} />
             <span>{t('heroSection.projects')}</span>
           </Link>

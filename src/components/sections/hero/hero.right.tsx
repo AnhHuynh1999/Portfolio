@@ -47,7 +47,7 @@ const HeroRight = () => {
         </div>
 
         <div className='active-tab'>
-          <SiTypescript className='text-primary' size={14} />
+          <SiTypescript className='text-primary' size={14} aria-hidden />
           <span>developer.ts</span>
         </div>
 

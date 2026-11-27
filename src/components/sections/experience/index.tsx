@@ -1,5 +1,5 @@
 import { Col, Row } from 'react-bootstrap'
-import experienceJSON from 'assets/lottie/laptop-fe.json'
+const experienceJSON = () => import('assets/lottie/laptop-fe.json')
 import AnimitionLottie from '@/components/share/animation-lottie'
 import { EXPERIENCES } from '@/helpers/data'
 import { useTranslation } from 'react-i18next'
@@ -33,7 +33,7 @@ const Experience = () => {
                 boxShadow: 'var(--shadow-md)'
               }}
             >
-              <AnimitionLottie animationPath={experienceJSON} width='90%' />
+              <AnimitionLottie load={experienceJSON} width='90%' />
               <div className='mt-3'>
                 <h5 className='mb-1 fw-bold text-primary'>{t('experience.title')}</h5>
                 <p className='text-muted small mb-0'>{t('experience.subtitle')}</p>

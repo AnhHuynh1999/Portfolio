@@ -2,45 +2,86 @@ import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { APP_DATA } from '@/helpers/data'
+import { validateContact, type ContactError } from '@/helpers/contact'
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaCopy, FaCheck } from 'react-icons/fa'
 import Socialmedia from '@/components/sections/socialMedia'
 
+type TField = 'name' | 'email' | 'subject' | 'message'
+type TStatus = 'idle' | 'sending' | 'sent' | 'failed' | 'rateLimited'
+const EMPTY = { name: '', email: '', subject: '', message: '', website: '' }
+
 const Contact = () => {
   const { t } = useTranslation()
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState(EMPTY)
+  const [errors, setErrors] = useState<Partial<Record<TField, ContactError>>>({})
+  const [status, setStatus] = useState<TStatus>('idle')
   const [copied, setCopied] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-    if (error) setError(false)
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+    if (errors[name as TField]) setErrors({ ...errors, [name]: undefined })
+    if (status === 'failed' || status === 'rateLimited') setStatus('idle')
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setError(true)
+    if (status === 'sending') return
+    const result = validateContact(formData)
+    if (!result.ok) {
+      setErrors(result.errors)
       return
     }
-
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 4000)
+    setErrors({})
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ ...result.value, website: formData.website })
+      })
+      if (res.ok) {
+        setStatus('sent')
+        setFormData(EMPTY)
+        return
+      }
+      if (res.status === 400) {
+        const data = await res.json().catch(() => null)
+        if (data?.errors) {
+          setErrors(data.errors)
+          setStatus('idle')
+          return
+        }
+      }
+      setStatus(res.status === 429 ? 'rateLimited' : 'failed')
+    } catch {
+      setStatus('failed')
+    }
   }
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(APP_DATA.EMAIL)
+    navigator.clipboard?.writeText(APP_DATA.EMAIL).catch(() => {})
     setCopied(true)
     setTimeout(() => setCopied(false), 2500)
   }
+
+  const field = (name: TField, required = true) => ({
+    id: `contact-${name}`,
+    name,
+    value: formData[name],
+    onChange: handleChange,
+    required,
+    className: `form-control glass-input${errors[name] ? ' is-invalid' : ''}`,
+    'aria-invalid': errors[name] ? true : undefined,
+    'aria-describedby': errors[name] ? `contact-${name}-error` : undefined
+  })
+
+  const fieldError = (name: TField) =>
+    errors[name] && (
+      <div id={`contact-${name}-error`} className='invalid-feedback d-block'>
+        {t(`contact.errors.${errors[name]}`)}
+      </div>
+    )
 
   return (
     <section id='contact-section' className='my-5 py-md-4'>
@@ -80,7 +121,7 @@ const Contact = () => {
                     </div>
                     <button
                       onClick={handleCopyEmail}
-                      className='btn btn-sm p-0 text-muted d-inline-flex align-items-center gap-1'
+                      className='btn btn-sm p-0 text-muted d-inline-flex align-items-center gap-1 contact-copy-btn'
                       style={{ fontSize: '0.8rem' }}
                     >
                       {copied ? (
@@ -154,101 +195,102 @@ const Contact = () => {
                 {t('contact.badge')}
               </h3>
 
-              {submitted ? (
-                <div
-                  className='p-4 text-center rounded-4 my-auto'
-                  style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid var(--accent-emerald)' }}
-                >
-                  <FaCheckCircle className='text-success mb-3' size={48} />
-                  <h4 className='fw-bold text-success mb-2'>Thành công!</h4>
-                  <p className='text-muted mb-0'>{t('contact.successMsg')}</p>
+              {status === 'sent' ? (
+                <div className='contact-result' role='status'>
+                  <FaCheckCircle className='text-success mb-3' size={48} aria-hidden />
+                  <h4 className='fw-bold text-success mb-2'>{t('contact.form.successTitle')}</h4>
+                  <p className='text-muted mb-3'>{t('contact.successMsg')}</p>
+                  <button type='button' className='btn-glass-secondary' onClick={() => setStatus('idle')}>
+                    {t('contact.sendBtn')}
+                  </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
-                  {error && (
-                    <div className='alert alert-danger py-2 px-3 small rounded-3 mb-3'>{t('contact.errorMsg')}</div>
+                <form onSubmit={handleSubmit} noValidate>
+                  {(status === 'failed' || status === 'rateLimited') && (
+                    <div className='alert alert-danger py-3 px-3 small rounded-3 mb-3' role='alert'>
+                      <div className='fw-bold mb-1'>{t('contact.form.failTitle')}</div>
+                      <div className='mb-2'>
+                        {t(status === 'rateLimited' ? 'contact.form.rateLimited' : 'contact.form.failDesc')}{' '}
+                        <strong>{APP_DATA.EMAIL}</strong>
+                      </div>
+                      <button type='button' onClick={handleCopyEmail} className='btn-glass-secondary'>
+                        {copied ? <FaCheck aria-hidden /> : <FaCopy aria-hidden />}
+                        <span>{t(copied ? 'contact.copiedEmail' : 'contact.copyEmail')}</span>
+                      </button>
+                    </div>
                   )}
+
+                  {/* Honeypot: hidden from people and screen readers, bots fill it. */}
+                  <div className='contact-hp' aria-hidden='true'>
+                    <label htmlFor='contact-website'>Website</label>
+                    <input
+                      id='contact-website'
+                      type='text'
+                      name='website'
+                      tabIndex={-1}
+                      autoComplete='off'
+                      value={formData.website}
+                      onChange={handleChange}
+                    />
+                  </div>
 
                   <Row className='gy-3 mb-3'>
                     <Col md={6}>
-                      <label className='form-label small fw-semibold text-muted mb-1'>Họ và tên</label>
+                      <label htmlFor='contact-name' className='form-label small fw-semibold text-muted mb-1'>
+                        {t('contact.form.name')} *
+                      </label>
                       <input
                         type='text'
-                        name='name'
-                        value={formData.name}
-                        onChange={handleChange}
+                        autoComplete='name'
+                        maxLength={100}
+                        {...field('name')}
                         placeholder={t('contact.namePlaceholder')}
-                        className='form-control'
-                        style={{
-                          background: 'var(--bg-glass-input)',
-                          borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
-                          borderRadius: '0.75rem',
-                          padding: '0.75rem 1rem'
-                        }}
                       />
+                      {fieldError('name')}
                     </Col>
                     <Col md={6}>
-                      <label className='form-label small fw-semibold text-muted mb-1'>Email</label>
+                      <label htmlFor='contact-email' className='form-label small fw-semibold text-muted mb-1'>
+                        {t('contact.form.email')} *
+                      </label>
                       <input
                         type='email'
-                        name='email'
-                        value={formData.email}
-                        onChange={handleChange}
+                        autoComplete='email'
+                        maxLength={254}
+                        {...field('email')}
                         placeholder={t('contact.emailPlaceholder')}
-                        className='form-control'
-                        style={{
-                          background: 'var(--bg-glass-input)',
-                          borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
-                          borderRadius: '0.75rem',
-                          padding: '0.75rem 1rem'
-                        }}
                       />
+                      {fieldError('email')}
                     </Col>
                   </Row>
 
                   <div className='mb-3'>
-                    <label className='form-label small fw-semibold text-muted mb-1'>Chủ đề</label>
+                    <label htmlFor='contact-subject' className='form-label small fw-semibold text-muted mb-1'>
+                      {t('contact.form.subject')}
+                    </label>
                     <input
                       type='text'
-                      name='subject'
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder={t('contact.subjectPlaceholder')}
-                      className='form-control'
-                      style={{
-                        background: 'var(--bg-glass-input)',
-                        borderColor: 'var(--border-subtle)',
-                        color: 'var(--text-primary)',
-                        borderRadius: '0.75rem',
-                        padding: '0.75rem 1rem'
-                      }}
+                      maxLength={150}
+                      {...field('subject', false)}
+                      placeholder={t('contact.form.subjectPlaceholder')}
                     />
+                    {fieldError('subject')}
                   </div>
 
                   <div className='mb-4'>
-                    <label className='form-label small fw-semibold text-muted mb-1'>Nội dung tin nhắn</label>
-                    <textarea
-                      name='message'
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder={t('contact.messagePlaceholder')}
-                      className='form-control'
-                      style={{
-                        background: 'var(--bg-glass-input)',
-                        borderColor: 'var(--border-subtle)',
-                        color: 'var(--text-primary)',
-                        borderRadius: '0.75rem',
-                        padding: '0.75rem 1rem'
-                      }}
-                    ></textarea>
+                    <label htmlFor='contact-message' className='form-label small fw-semibold text-muted mb-1'>
+                      {t('contact.form.message')} *
+                    </label>
+                    <textarea rows={4} {...field('message')} placeholder={t('contact.messagePlaceholder')}></textarea>
+                    {fieldError('message')}
                   </div>
 
-                  <button type='submit' className='btn-glow-primary w-100 py-3'>
-                    <FaPaperPlane size={16} />
-                    <span>{t('contact.sendBtn')}</span>
+                  <button type='submit' className='btn-glow-primary w-100 py-3' disabled={status === 'sending'}>
+                    {status === 'sending' ? (
+                      <span className='spinner-border spinner-border-sm' aria-hidden />
+                    ) : (
+                      <FaPaperPlane size={16} aria-hidden />
+                    )}
+                    <span>{t(status === 'sending' ? 'contact.sending' : 'contact.sendBtn')}</span>
                   </button>
                 </form>
               )}

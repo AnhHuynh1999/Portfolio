@@ -6,6 +6,9 @@ import Experience from '@/components/sections/experience'
 import Skill from '@/components/sections/skill'
 import Project from '@/components/sections/project'
 import Contact from '@/components/sections/contact'
+import GithubActivity from '@/components/sections/github'
+import Testimonial from '@/components/sections/testimonial'
+import { TESTIMONIALS } from '@/helpers/data'
 import { useRef } from 'react'
 
 const HomePage = () => {
@@ -69,7 +72,29 @@ const HomePage = () => {
 
       <div className='section-divider'></div>
 
-      {/* 6. Contact & Quick Connect */}
+      {/* 6. Live GitHub activity */}
+      <section className='py-4'>
+        <Container>
+          <GithubActivity />
+        </Container>
+      </section>
+
+      <div className='section-divider'></div>
+
+      {/* 7. Testimonials (hidden when there are none) */}
+      {TESTIMONIALS.length > 0 && (
+        <>
+          <section className='py-4'>
+            <Container>
+              <Testimonial />
+            </Container>
+          </section>
+
+          <div className='section-divider'></div>
+        </>
+      )}
+
+      {/* 8. Contact & Quick Connect */}
       <section className='py-4'>
         <Container>
           <Contact />

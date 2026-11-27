@@ -11,6 +11,7 @@ import '@/i18n.ts'
 import { AppContextProvider } from 'components/context/app.context'
 import AboutPage from './pages/about.tsx'
 import LovePage from './pages/love.tsx'
+import NotFoundPage from './pages/not-found.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: '/project', element: <ProjectPage /> },
       { path: '/project/:slug', element: <ProjectDetailPage /> },
-      { path: '/about', element: <AboutPage /> }
+      { path: '/about', element: <AboutPage /> },
+      { path: '*', element: <NotFoundPage /> }
     ]
   },
   {

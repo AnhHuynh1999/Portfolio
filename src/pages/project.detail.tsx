@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { FaArrowLeft } from 'react-icons/fa'
 import { APP_DATA, PROJECTS } from '@/helpers/data'
 import { ProjectImage, ProjectLinks } from '@/components/sections/project/project.card'
+import NotFoundPage from '@/pages/not-found'
 
 type TLanguage = 'vi' | 'en'
 
@@ -36,17 +37,7 @@ const ProjectDetailPage = () => {
   // Came from inside the site → real Back (keeps filters + scroll, FR-003); opened directly → list.
   const goBack = () => (location.key !== 'default' ? navigate(-1) : navigate('/project'))
 
-  if (!project) {
-    return (
-      <Container className='project-detail-notfound text-center py-5'>
-        <h1 className='section-title'>{t('project.notFound')}</h1>
-        <p className='section-subtitle'>{t('project.notFoundDesc')}</p>
-        <Link to='/project' className='btn btn-glow-primary mt-3'>
-          {t('project.back')}
-        </Link>
-      </Container>
-    )
-  }
+  if (!project) return <NotFoundPage />
 
   // Missing translation → Vietnamese; missing field → section hidden (FR-001a).
   const pick = <T,>(field?: { vi: T; en: T }) => field && (field[lang] || field.vi)

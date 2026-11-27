@@ -74,8 +74,6 @@
     "viewDetail": "Xem chi tiết",
     "viewAll": "Xem tất cả dự án",
     "back": "Quay lại danh sách",
-    "notFound": "Không tìm thấy dự án",
-    "notFoundDesc": "Dự án bạn tìm không tồn tại hoặc đã bị gỡ.",
     "empty": "Không có dự án phù hợp",
     "clearFilters": "Xóa bộ lọc",
     "filterTech": "Lọc theo công nghệ",
@@ -105,7 +103,23 @@
     "successMsg": "Cảm ơn bạn! Tin nhắn đã được gửi thành công. Tôi sẽ phản hồi sớm nhất.",
     "errorMsg": "Vui lòng điền đầy đủ các thông tin bắt buộc!",
     "copyEmail": "Sao chép Email",
-    "copiedEmail": "Đã sao chép Email!"
+    "copiedEmail": "Đã sao chép Email!",
+    "form": {
+      "name": "Họ và tên",
+      "email": "Email",
+      "subject": "Chủ đề",
+      "message": "Nội dung tin nhắn",
+      "successTitle": "Đã gửi!",
+      "failTitle": "Chưa gửi được tin nhắn",
+      "failDesc": "Tin nhắn của bạn vẫn còn nguyên. Hãy thử lại sau hoặc gửi email trực tiếp cho tôi:",
+      "rateLimited": "Bạn gửi hơi nhiều trong thời gian ngắn. Vui lòng thử lại sau ít phút hoặc gửi email trực tiếp:",
+      "subjectPlaceholder": "Chủ đề / Dự án muốn trao đổi"
+    },
+    "errors": {
+      "required": "Vui lòng nhập trường này.",
+      "invalid": "Email chưa đúng định dạng.",
+      "tooLong": "Nội dung quá dài."
+    }
   },
   "about": {
     "badge": "CÂU CHUYỆN CỦA TÔI",
@@ -128,5 +142,52 @@
     "inVietnam": "tại Việt Nam",
     "quickLinks": "Liên kết nhanh",
     "backToTop": "Lên đầu trang"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "desc": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
+    "home": "Về trang chủ",
+    "projects": "Xem dự án"
+  },
+  "titles": {
+    "home": "Bảo Anh — Fullstack Developer",
+    "projects": "Dự án — Bảo Anh",
+    "about": "Giới thiệu — Bảo Anh",
+    "notFound": "Không tìm thấy trang"
+  },
+  "palette": {
+    "open": "Tìm kiếm nhanh",
+    "placeholder": "Tìm trang, dự án, hành động...",
+    "empty": "Không có kết quả phù hợp",
+    "page": "Trang",
+    "project": "Dự án",
+    "action": "Hành động",
+    "copyEmail": "Sao chép email",
+    "toggleTheme": "Đổi giao diện sáng/tối",
+    "switchLang": "Switch to English",
+    "openCv": "Mở CV",
+    "copied": "Đã sao chép email!"
+  },
+  "github": {
+    "badge": "MÃ NGUỒN MỞ",
+    "title": "Hoạt động GitHub",
+    "subtitle": "Những repository tôi cập nhật gần đây nhất",
+    "summary": "{{count}} repo công khai · lần push gần nhất {{when}}",
+    "fallback": "Chưa tải được dữ liệu GitHub lúc này.",
+    "viewProfile": "Xem hồ sơ GitHub",
+    "stars": "sao",
+    "pushed": "Push"
+  },
+  "testimonial": {
+    "badge": "NHẬN XÉT",
+    "title": "Đồng nghiệp nói gì",
+    "subtitle": "Nhận xét từ những người đã làm việc cùng tôi",
+    "readMore": "Xem thêm",
+    "readLess": "Thu gọn",
+    "teammate": "Đồng nghiệp",
+    "manager": "Quản lý",
+    "client": "Khách hàng",
+    "mentor": "Người hướng dẫn",
+    "profile": "Hồ sơ"
   }
 }

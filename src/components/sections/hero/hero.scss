@@ -236,3 +236,31 @@
   color: #c084fc;
   font-weight: 600;
 }
+
+/* Light theme: darker token colors so code stays ≥ 4.5:1 on the white editor */
+[data-bs-theme='light'] {
+  .syn-keyword {
+    color: #be123c;
+  }
+  .syn-var {
+    color: #0369a1;
+  }
+  .syn-prop {
+    color: #6d28d9;
+  }
+  .syn-string {
+    color: #047857;
+  }
+  .syn-bool {
+    color: #c2410c;
+  }
+  .syn-func {
+    color: #a16207;
+  }
+  .syn-this {
+    color: #be185d;
+  }
+  .syn-num {
+    color: #7e22ce;
+  }
+}

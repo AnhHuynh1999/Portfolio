@@ -74,8 +74,6 @@
     "viewDetail": "View details",
     "viewAll": "View all projects",
     "back": "Back to projects",
-    "notFound": "Project not found",
-    "notFoundDesc": "The project you are looking for does not exist or has been removed.",
     "empty": "No matching projects",
     "clearFilters": "Clear filters",
     "filterTech": "Filter by technology",
@@ -105,7 +103,23 @@
     "successMsg": "Thank you! Your message has been sent successfully. I will get back to you soon.",
     "errorMsg": "Please fill out all required fields!",
     "copyEmail": "Copy Email",
-    "copiedEmail": "Email Copied!"
+    "copiedEmail": "Email Copied!",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "successTitle": "Sent!",
+      "failTitle": "Your message was not sent",
+      "failDesc": "Your text is still here. Please try again later or email me directly:",
+      "rateLimited": "Too many messages in a short time. Please try again in a few minutes or email me directly:",
+      "subjectPlaceholder": "Subject / project to discuss"
+    },
+    "errors": {
+      "required": "Please fill in this field.",
+      "invalid": "Please enter a valid email.",
+      "tooLong": "This is too long."
+    }
   },
   "about": {
     "badge": "MY STORY",
@@ -128,5 +142,52 @@
     "inVietnam": "in Vietnam",
     "quickLinks": "Quick Navigation",
     "backToTop": "Back to Top"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "The page you are looking for does not exist or has moved.",
+    "home": "Back to home",
+    "projects": "View projects"
+  },
+  "titles": {
+    "home": "Bảo Anh — Fullstack Developer",
+    "projects": "Projects — Bảo Anh",
+    "about": "About — Bảo Anh",
+    "notFound": "Page not found"
+  },
+  "palette": {
+    "open": "Quick search",
+    "placeholder": "Search pages, projects, actions...",
+    "empty": "No matching results",
+    "page": "Pages",
+    "project": "Projects",
+    "action": "Actions",
+    "copyEmail": "Copy email",
+    "toggleTheme": "Toggle light/dark theme",
+    "switchLang": "Chuyển sang Tiếng Việt",
+    "openCv": "Open CV",
+    "copied": "Email copied!"
+  },
+  "github": {
+    "badge": "OPEN SOURCE",
+    "title": "GitHub activity",
+    "subtitle": "Repositories I pushed to most recently",
+    "summary": "{{count}} public repos · last push {{when}}",
+    "fallback": "Couldn't load GitHub data right now.",
+    "viewProfile": "View GitHub profile",
+    "stars": "stars",
+    "pushed": "Pushed"
+  },
+  "testimonial": {
+    "badge": "TESTIMONIALS",
+    "title": "What colleagues say",
+    "subtitle": "Words from people I have worked with",
+    "readMore": "Read more",
+    "readLess": "Show less",
+    "teammate": "Teammate",
+    "manager": "Manager",
+    "client": "Client",
+    "mentor": "Mentor",
+    "profile": "Profile"
   }
 }

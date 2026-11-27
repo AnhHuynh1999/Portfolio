@@ -8,6 +8,8 @@ import './introduction.scss'
 
 type TLanguage = 'vi' | 'en'
 
+const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
 const Introduction = () => {
   const { t, i18n } = useTranslation()
   const currentLanguage = (i18n.resolvedLanguage || 'vi') as TLanguage
@@ -58,9 +60,9 @@ const Introduction = () => {
 
           {/* Hobbies Badges */}
           <div className='mt-4 pt-2'>
-            <h5 className='mb-3' style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+            <h3 className='mb-3' style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)' }}>
               {t('introSection.hobbiesTitle')}:
-            </h5>
+            </h3>
             <div className='d-flex flex-wrap gap-2'>
               <div className='hobby-pill'>
                 <FaGamepad className='text-primary' />
@@ -85,6 +87,7 @@ const Introduction = () => {
         {/* 3D Tilt Avatar & Bio Showcase */}
         <Col xs={12} lg={5} className='text-center'>
           <Tilt
+            tiltEnable={!reducedMotion}
             tiltMaxAngleX={15}
             tiltMaxAngleY={15}
             perspective={1000}
